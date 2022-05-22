@@ -1,3 +1,1 @@
-# asdf
-# Veb-Programiranje
-# jovoker123
+jovo i raša rade veb :)
