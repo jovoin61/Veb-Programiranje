@@ -6,18 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d469d6a6-6a16-4438-a8be-7a87d2a6bc05" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/configuration/DatabaseConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/configuration/DatabaseConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Artikal.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Artikal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Dostavljac.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Dostavljac.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Komentar.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Komentar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Korisnik.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Korisnik.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Kpgs.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Kpgs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Kupac.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Kupac.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Lokacija.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Lokacija.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Menadzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Menadzer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Porudzbina.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Porudzbina.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Restoran.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Restoran.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/TipKupca.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/TipKupca.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,19 +47,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "settings.editor.selected.configurable": "Errors",
-    "spring.configuration.checksum": "731a940bbd16f470d9acf6946c0d7419"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;731a940bbd16f470d9acf6946c0d7419&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="VebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="veb" />
@@ -93,7 +81,8 @@
       <workItem from="1655449179915" duration="4640000" />
       <workItem from="1655461067700" duration="3357000" />
       <workItem from="1655556941620" duration="8891000" />
-      <workItem from="1655576945953" duration="7206000" />
+      <workItem from="1655576945953" duration="7956000" />
+      <workItem from="1655587437669" duration="352000" />
     </task>
     <servers />
   </component>

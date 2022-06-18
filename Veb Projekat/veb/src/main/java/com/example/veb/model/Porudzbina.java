@@ -16,29 +16,29 @@ public class Porudzbina implements Serializable {
 
     @Id
     @GeneratedValue
-    protected UUID uuid;
+    private UUID uuid;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "porudzbina")
-    protected Set<Kpgs> stavke;
+    private Set<Kpgs> stavke;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "restoran_id")
-    protected Restoran restoran;
+    private Restoran restoran;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column
-    protected Date vreme_porudzbine;
+    private Date vreme_porudzbine;
 
     @Column
-    protected Double cena;
+    private Double cena;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "kupac_id")
-    protected Kupac kupac;
+    private Kupac kupac;
 
     @Enumerated(EnumType.STRING)
     @Column
-    protected Status status;
+    private Status status;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "dostavljac_id")
