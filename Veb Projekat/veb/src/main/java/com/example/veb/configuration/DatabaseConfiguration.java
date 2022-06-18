@@ -52,9 +52,13 @@ public class DatabaseConfiguration {  //nemam knjizicu
         Calendar kalendar = new GregorianCalendar();
 
         kalendar.set(1963, Calendar.JUNE,14);
-        Kupac ranbo = new Kupac("baustelac_ranbo", "fap", "antonije", "pusic", Pol.MUSKI, kalendar.getTime());
+        Korisnik ranbo = new Kupac("baustelac_ranbo", "fap", "antonije", "pusic", Pol.MUSKI, kalendar.getTime());
+        ranbo.setUloga(Uloga.ADMIN);
 
-        kupacRepository.save(ranbo);
+        Kupac kupac1 = new Kupac("kupac123", "kupac123", "Kup", "Ac", Pol.ZENSKI, kalendar.getTime());
+
+        korisnikRepository.save(ranbo);
+        kupacRepository.save(kupac1);
 
         kalendar.set(1953, Calendar.JANUARY,19);
         Dostavljac brko = new Dostavljac("brko123", "brko123", "Brko", "Brkic", Pol.MUSKI, kalendar.getTime());
@@ -117,21 +121,21 @@ public class DatabaseConfiguration {  //nemam knjizicu
         kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
 
         kalendar.set(2021, Calendar.MAY,26);
-        Porudzbina p1 = new Porudzbina(stavke1, fap , kalendar.getTime() , ranbo , Status.CEKA_DOSTAVLJACA);
+        Porudzbina p1 = new Porudzbina(stavke1, fap , kalendar.getTime() , kupac1 , Status.CEKA_DOSTAVLJACA);
         //porudzbinaRepository.saveAndFlush(p1);
-        Porudzbina p2 = new Porudzbina(stavke2, fap , kalendar.getTime() , ranbo , Status.CEKA_DOSTAVLJACA);
+        Porudzbina p2 = new Porudzbina(stavke2, fap , kalendar.getTime() , kupac1 , Status.CEKA_DOSTAVLJACA);
         //porudzbinaRepository.save(p2);
         porudzbinaRepository.saveAll(List.of(p1,p2));
 
 
 
         TipKupca tip1 = new TipKupca("zlatni",20,10);
-        ranbo.setTip_kupca(tip1);
+        kupac1.setTip_kupca(tip1);
 
 
         tipKupcaRepository.save(tip1);
 
-        Komentar k1 = new Komentar(ranbo,fap,"dobar", 9);
+        Komentar k1 = new Komentar(kupac1, fap,"dobar", 9);
 
         komentarRepository.save(k1);
 

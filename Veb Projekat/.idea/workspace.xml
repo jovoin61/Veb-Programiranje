@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d469d6a6-6a16-4438-a8be-7a87d2a6bc05" name="Changes" comment="" />
+    <list default="true" id="d469d6a6-6a16-4438-a8be-7a87d2a6bc05" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/configuration/DatabaseConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/configuration/DatabaseConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Korisnik.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Korisnik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Porudzbina.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Porudzbina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veb/target/classes/com/example/veb/model/Porudzbina.class" beforeDir="false" afterPath="$PROJECT_DIR$/veb/target/classes/com/example/veb/model/Porudzbina.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,7 +68,7 @@
       <workItem from="1655409915664" duration="5677000" />
       <workItem from="1655449179915" duration="4640000" />
       <workItem from="1655461067700" duration="3357000" />
-      <workItem from="1655556941620" duration="6458000" />
+      <workItem from="1655556941620" duration="8891000" />
     </task>
     <servers />
   </component>

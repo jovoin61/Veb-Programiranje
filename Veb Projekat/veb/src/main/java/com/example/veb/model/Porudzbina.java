@@ -18,10 +18,10 @@ public class Porudzbina implements Serializable {
     @GeneratedValue
     protected UUID uuid;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany
     protected Set<Kpgs> stavke;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     protected Restoran restoran;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -31,7 +31,7 @@ public class Porudzbina implements Serializable {
     @Column
     protected Double cena;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     protected Kupac kupac;
 
     @Enumerated(EnumType.STRING)

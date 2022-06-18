@@ -46,6 +46,7 @@ public class Korisnik implements Serializable {
         this.datum_rodjenja = datum_rodjenja;
     }
 
+
     public Long getId_korisnika() {
         return id_korisnika;
     }
