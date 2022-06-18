@@ -9,7 +9,7 @@ import java.util.*;
 @Entity
 public class Dostavljac extends Korisnik implements Serializable {
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "dostavljac")
     private Set<Porudzbina> porudzbine = new HashSet<>();
 
     public Dostavljac() {
@@ -34,4 +34,6 @@ public class Dostavljac extends Korisnik implements Serializable {
     public void setPorudzbine(Set<Porudzbina> porudzbine) {
         this.porudzbine = porudzbine;
     }
+
+
 }

@@ -8,8 +8,9 @@ import java.util.*;
 @Entity
 public class Menadzer extends Korisnik implements Serializable {
 
-    @OneToOne
-    protected Restoran restoran;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "restoran_id")
+    private Restoran restoran;
 
     public Menadzer() {
         this.uloga = Uloga.MENADZER;
@@ -29,4 +30,6 @@ public class Menadzer extends Korisnik implements Serializable {
     public void setRestoran(Restoran restoran) {
         this.restoran = restoran;
     }
+
+
 }

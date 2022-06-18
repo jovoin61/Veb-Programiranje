@@ -110,4 +110,6 @@ public class Korisnik implements Serializable {
     public void setUloga(Uloga uloga) {
         this.uloga = uloga;
     }
+
+
 }

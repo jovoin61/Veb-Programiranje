@@ -59,4 +59,6 @@ public class Lokacija implements Serializable {
     public void setId_lokacije(Long id_lokacije) {
         this.id_lokacije = id_lokacije;
     }
+
+
 }

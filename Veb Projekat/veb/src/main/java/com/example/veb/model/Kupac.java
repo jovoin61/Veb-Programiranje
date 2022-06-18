@@ -9,13 +9,14 @@ import java.util.*;
 @Entity
 public class Kupac extends Korisnik implements Serializable {
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "kupac")
     private Set<Porudzbina> porudzbine = new HashSet<>();
 
     @Column
     private Integer broj_sakupljenih_bodova;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "kupac_id")
     private TipKupca tip_kupca;
 
     public Kupac() {
@@ -52,4 +53,6 @@ public class Kupac extends Korisnik implements Serializable {
     public void setTip_kupca(TipKupca tip_kupca) {
         this.tip_kupca = tip_kupca;
     }
+
+
 }

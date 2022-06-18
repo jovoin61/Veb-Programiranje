@@ -10,10 +10,12 @@ public class Komentar implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "kupac_id")
     private Kupac kupac;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "restoran_id")
     private Restoran restoran;
 
     @Column
@@ -69,4 +71,6 @@ public class Komentar implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+
 }

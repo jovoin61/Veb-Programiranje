@@ -28,6 +28,10 @@ public class Artikal implements Serializable{
     @Column
     private String opis;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "restoran_id")
+    private Restoran restoran;
+
     public Artikal() {
     }
 
@@ -85,5 +89,13 @@ public class Artikal implements Serializable{
 
     public void setOpis(String opis) {
         this.opis = opis;
+    }
+
+    public Restoran getRestoran() {
+        return restoran;
+    }
+
+    public void setRestoran(Restoran restoran) {
+        this.restoran = restoran;
     }
 }

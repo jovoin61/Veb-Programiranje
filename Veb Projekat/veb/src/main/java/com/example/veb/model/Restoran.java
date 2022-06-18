@@ -9,19 +9,20 @@ public class Restoran implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long id_restorana;
+    private Long id_restorana;
 
     @Column
-    protected String naziv ;
+    private String naziv ;
 
     @Column
-    protected String tip;
+    private String tip;
 
-    @OneToMany
-    protected Set<Artikal> artikli = new HashSet<>();
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "restoran")
+    private Set<Artikal> artikli = new HashSet<>();
 
-    @OneToOne
-    protected Lokacija lokacija;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "lokacija_id")
+    private Lokacija lokacija;
 
     public Restoran() {
     }
@@ -71,4 +72,6 @@ public class Restoran implements Serializable {
     public void setLokacija(Lokacija lokacija) {
         this.lokacija = lokacija;
     }
+
+
 }

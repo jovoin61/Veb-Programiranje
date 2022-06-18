@@ -18,10 +18,11 @@ public class Porudzbina implements Serializable {
     @GeneratedValue
     protected UUID uuid;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "porudzbina")
     protected Set<Kpgs> stavke;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "restoran_id")
     protected Restoran restoran;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -31,12 +32,17 @@ public class Porudzbina implements Serializable {
     @Column
     protected Double cena;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "kupac_id")
     protected Kupac kupac;
 
     @Enumerated(EnumType.STRING)
     @Column
     protected Status status;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "dostavljac_id")
+    private Dostavljac dostavljac;
 
     public Porudzbina() {
     }
@@ -105,5 +111,29 @@ public class Porudzbina implements Serializable {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Set<Kpgs> getStavke() {
+        return stavke;
+    }
+
+    public void setStavke(Set<Kpgs> stavke) {
+        this.stavke = stavke;
+    }
+
+    public Dostavljac getDostavljac() {
+        return dostavljac;
+    }
+
+    public void setDostavljac(Dostavljac dostavljac) {
+        this.dostavljac = dostavljac;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
     }
 }
