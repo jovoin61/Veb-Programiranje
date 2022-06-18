@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
+//test
 @Entity
 public class Artikal implements Serializable{
 
