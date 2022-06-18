@@ -10,16 +10,16 @@ public class Korisnik implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id_korisnika;
 
-    @Column(nullable = false, unique = true, name = "korisnicko_ime")
+    @Column
     protected String korisnicko_ime;
 
-    @Column(nullable = false)
+    @Column
     protected String lozinka;
 
-    @Column(nullable = false)
+    @Column
     protected String ime;
 
-    @Column(nullable = false)
+    @Column
     protected String prezime;
 
     @Enumerated(EnumType.STRING)

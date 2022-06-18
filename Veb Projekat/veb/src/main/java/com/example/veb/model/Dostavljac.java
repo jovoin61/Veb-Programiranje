@@ -9,7 +9,7 @@ import java.util.*;
 @Entity
 public class Dostavljac extends Korisnik implements Serializable {
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "dostavljac")
+    @OneToMany
     private Set<Porudzbina> porudzbine = new HashSet<>();
 
     public Dostavljac() {

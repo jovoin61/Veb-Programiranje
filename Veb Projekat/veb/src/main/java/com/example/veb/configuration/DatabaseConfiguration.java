@@ -90,14 +90,10 @@ public class DatabaseConfiguration {  //nemam knjizicu
 
         Restoran fap = new Restoran("F.A.P.", "kamionski", priboj);
 
-        menjac.setRestoran(fap);
-        volan.setRestoran(fap);
-        felna.setRestoran(fap);
-
-
         restoranRepository.saveAll(List.of(fap, r));
 
         dzemo.setRestoran(fap);
+        fap.setArtikli(artikli);
 
         korisnikRepository.save(dzemo);
 
@@ -124,7 +120,7 @@ public class DatabaseConfiguration {  //nemam knjizicu
         Porudzbina p1 = new Porudzbina(stavke1, fap , kalendar.getTime() , ranbo , Status.CEKA_DOSTAVLJACA);
         //porudzbinaRepository.saveAndFlush(p1);
         Porudzbina p2 = new Porudzbina(stavke2, fap , kalendar.getTime() , ranbo , Status.CEKA_DOSTAVLJACA);
-        porudzbinaRepository.save(p2);
+        //porudzbinaRepository.save(p2);
         porudzbinaRepository.saveAll(List.of(p1,p2));
 
 
@@ -132,7 +128,7 @@ public class DatabaseConfiguration {  //nemam knjizicu
         TipKupca tip1 = new TipKupca("zlatni",20,10);
         ranbo.setTip_kupca(tip1);
 
-        kupacRepository.save(ranbo);
+
         tipKupcaRepository.save(tip1);
 
         Komentar k1 = new Komentar(ranbo,fap,"dobar", 9);

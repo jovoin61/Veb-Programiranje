@@ -2,6 +2,7 @@ package com.example.veb.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -17,6 +18,7 @@ public class Artikal implements Serializable{
     @Column
     private Double cena;
 
+    @Enumerated(EnumType.STRING)
     @Column
     private Tip tip ;
 
@@ -25,12 +27,6 @@ public class Artikal implements Serializable{
 
     @Column
     private String opis;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "restoran_id")
-    private Restoran restoran;
-
-    ///TODO KPGS
 
     public Artikal() {
     }
@@ -89,13 +85,5 @@ public class Artikal implements Serializable{
 
     public void setOpis(String opis) {
         this.opis = opis;
-    }
-
-    public Restoran getRestoran() {
-        return restoran;
-    }
-
-    public void setRestoran(Restoran restoran) {
-        this.restoran = restoran;
     }
 }

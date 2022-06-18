@@ -19,11 +19,9 @@ public class Porudzbina implements Serializable {
     protected UUID uuid;
 
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "stavkeId")
     protected Set<Kpgs> stavke;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "restoran_id")
     protected Restoran restoran;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -34,16 +32,11 @@ public class Porudzbina implements Serializable {
     protected Double cena;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "kupac_id")
     protected Kupac kupac;
 
     @Enumerated(EnumType.STRING)
     @Column
     protected Status status;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name= "dostavljac_id")
-    protected Dostavljac dostavljac;
 
     public Porudzbina() {
     }
@@ -52,11 +45,6 @@ public class Porudzbina implements Serializable {
         this.stavke = stavke;
         this.restoran = restoran;
         this.vreme_porudzbine = vreme_porudzbine;
-       /*
-        for(Kpgs x : stavke ) {
-            this.cena += x.getUkupna_cena();
-        }
-        */
         this.kupac = kupac;
         this.status = status;
     }

@@ -12,15 +12,13 @@ public class TipKupca implements Serializable {
     protected Long id_tip_kupca;
 
     @Column
-    protected String ime;///????
+    protected String ime;
 
     @Column
     protected Integer popust;
 
     @Column
     protected Integer trazeni_broj_bodova;
-
-    ///TODO KUPAC
 
     public TipKupca() {
     }

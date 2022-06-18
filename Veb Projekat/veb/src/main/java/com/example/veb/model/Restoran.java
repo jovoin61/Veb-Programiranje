@@ -17,17 +17,11 @@ public class Restoran implements Serializable {
     @Column
     protected String tip;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "restoran")
+    @OneToMany
     protected Set<Artikal> artikli = new HashSet<>();
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "lokacija_id")
+    @OneToOne
     protected Lokacija lokacija;
-
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "restoran")
-    protected Set<Komentar> komentari;
-
-    //TODO PORUDZBINE
 
     public Restoran() {
     }
@@ -76,13 +70,5 @@ public class Restoran implements Serializable {
 
     public void setLokacija(Lokacija lokacija) {
         this.lokacija = lokacija;
-    }
-
-    public Set<Komentar> getKomentari() {
-        return komentari;
-    }
-
-    public void setKomentari(Set<Komentar> komentari) {
-        this.komentari = komentari;
     }
 }

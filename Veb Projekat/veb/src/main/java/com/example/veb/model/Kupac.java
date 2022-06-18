@@ -9,20 +9,14 @@ import java.util.*;
 @Entity
 public class Kupac extends Korisnik implements Serializable {
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "kupac")
+    @OneToMany
     private Set<Porudzbina> porudzbine = new HashSet<>();
 
     @Column
     private Integer broj_sakupljenih_bodova;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "tip_kupca_id")
+    @ManyToOne
     private TipKupca tip_kupca;
-
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "kupac")
-    private Set<Komentar> komentari;
-
-    //TODO PORUDZBINE
 
     public Kupac() {
         this.uloga = Uloga.KUPAC;

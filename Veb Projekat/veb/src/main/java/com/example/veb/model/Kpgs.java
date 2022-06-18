@@ -11,16 +11,13 @@ public class Kpgs implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_kpgs;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "artikal_id")
+    @ManyToOne
     private Artikal artikal;
 
     private Double ukupna_cena;
 
     @Column
     private Integer broj_artikala;
-
-    //TODO PORUDZBINA
 
     public Kpgs() {
     }
