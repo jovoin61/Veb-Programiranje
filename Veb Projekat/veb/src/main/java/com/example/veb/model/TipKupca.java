@@ -9,16 +9,16 @@ public class TipKupca implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long id_tip_kupca;
+    private Long id_tip_kupca;
 
     @Column
-    protected String ime;
+    private String ime;
 
     @Column
-    protected Integer popust;
+    private Integer popust;
 
     @Column
-    protected Integer trazeni_broj_bodova;
+    private Integer trazeni_broj_bodova;
 
     public TipKupca() {
     }
