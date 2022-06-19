@@ -1,5 +1,7 @@
 package com.example.veb.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -23,6 +25,7 @@ public class Kpgs implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "porudzbina_id")
+    @JsonIgnore
     private Porudzbina porudzbina;
 
     public Kpgs() {

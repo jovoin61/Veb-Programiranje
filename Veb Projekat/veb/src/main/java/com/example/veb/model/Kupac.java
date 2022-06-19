@@ -10,6 +10,7 @@ import java.util.*;
 public class Kupac extends Korisnik implements Serializable {
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "kupac")
+    @JsonIgnore
     private Set<Porudzbina> porudzbine = new HashSet<>();
 
     @Column

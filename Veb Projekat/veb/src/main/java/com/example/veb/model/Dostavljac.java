@@ -1,5 +1,7 @@
 package com.example.veb.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
@@ -10,6 +12,7 @@ import java.util.*;
 public class Dostavljac extends Korisnik implements Serializable {
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "dostavljac")
+    @JsonIgnore
     private Set<Porudzbina> porudzbine = new HashSet<>();
 
     public Dostavljac() {

@@ -30,6 +30,7 @@ public class Artikal implements Serializable{
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "restoran_id")
+    @JsonIgnore
     private Restoran restoran;
 
     public Artikal() {
