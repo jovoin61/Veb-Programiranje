@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d469d6a6-6a16-4438-a8be-7a87d2a6bc05" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Artikal.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Artikal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Dostavljac.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Dostavljac.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Kpgs.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Kpgs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Kupac.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/model/Kupac.java" afterDir="false" />
-    </list>
+    <list default="true" id="d469d6a6-6a16-4438-a8be-7a87d2a6bc05" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,7 +80,7 @@
       <workItem from="1655461067700" duration="3357000" />
       <workItem from="1655556941620" duration="8891000" />
       <workItem from="1655576945953" duration="7956000" />
-      <workItem from="1655587437669" duration="3139000" />
+      <workItem from="1655587437669" duration="3875000" />
     </task>
     <servers />
   </component>
