@@ -21,7 +21,18 @@ public class Menadzer extends Korisnik implements Serializable {
         this.uloga = Uloga.MENADZER;
     }
 
+    public Menadzer(Korisnik korisnik) {
+        this.korisnicko_ime = korisnik.korisnicko_ime;
+        this.lozinka = korisnik.lozinka;
+        this.ime = korisnik.ime;
+        this.prezime = korisnik.prezime;
+        this.pol = korisnik.pol;
+        this.datum_rodjenja = korisnik.datum_rodjenja;
 
+        this.uloga = Uloga.MENADZER;
+
+        this.restoran = null;
+    }
 
     public Restoran getRestoran() {
         return restoran;
