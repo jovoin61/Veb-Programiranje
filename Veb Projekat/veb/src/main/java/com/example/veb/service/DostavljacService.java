@@ -13,7 +13,7 @@ public class DostavljacService {
     @Autowired
     private DostavljacRepository dostavljacRepository;
 
-    public String dodaj_menadzera(Korisnik korisnik){
+    public String dodaj_dostavljaca(Korisnik korisnik){
         Dostavljac noviDostavljac = new Dostavljac(korisnik);
         dostavljacRepository.save(noviDostavljac);
 
