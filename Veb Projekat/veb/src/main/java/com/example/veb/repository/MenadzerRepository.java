@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MenadzerRepository extends JpaRepository<Menadzer, Long> {
     //public Menadzer getById(Long id);
-    //public Menadzer findByKorisnicko_ime(String korisnicko_ime);
+    public Menadzer findByKorisnickoIme(String korisnickoIme);
 }

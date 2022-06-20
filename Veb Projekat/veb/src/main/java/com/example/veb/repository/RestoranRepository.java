@@ -11,7 +11,7 @@ import java.util.Set;
 @Repository
 public interface RestoranRepository extends JpaRepository<Restoran, Long> {
     //public Restoran getById(Long id);
-    //public Restoran findByNaziv(String naziv);
+    public Restoran findByNaziv(String naziv);
     //public Restoran getByLokacija(Lokacija lokacija);
     //public Set<Restoran> findByTip(String tip);
 

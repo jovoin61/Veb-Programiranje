@@ -11,7 +11,7 @@ public class Korisnik implements Serializable {
     protected Long id_korisnika;
 
     @Column
-    protected String korisnicko_ime;
+    protected String korisnickoIme;
 
     @Column
     protected String lozinka;
@@ -38,7 +38,7 @@ public class Korisnik implements Serializable {
     }
 
     public Korisnik(String korisnicko_ime, String lozinka, String ime, String prezime, Pol pol, Date datum_rodjenja) {
-        this.korisnicko_ime = korisnicko_ime;
+        this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
         this.ime = ime;
         this.prezime = prezime;
@@ -56,11 +56,11 @@ public class Korisnik implements Serializable {
     }
 
     public String getKorisnicko_ime() {
-        return korisnicko_ime;
+        return korisnickoIme;
     }
 
     public void setKorisnicko_ime(String korisnicko_ime) {
-        this.korisnicko_ime = korisnicko_ime;
+        this.korisnickoIme = korisnicko_ime;
     }
 
     public String getLozinka() {

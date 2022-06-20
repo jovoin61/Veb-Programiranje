@@ -31,7 +31,7 @@ public class Dostavljac extends Korisnik implements Serializable {
     }
 
     public Dostavljac(Korisnik korisnik) {
-        this.korisnicko_ime = korisnik.korisnicko_ime;
+        this.korisnickoIme = korisnik.korisnickoIme;
         this.lozinka = korisnik.lozinka;
         this.ime = korisnik.ime;
         this.prezime = korisnik.prezime;

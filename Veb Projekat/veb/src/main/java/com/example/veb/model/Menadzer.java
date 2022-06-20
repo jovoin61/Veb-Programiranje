@@ -22,7 +22,7 @@ public class Menadzer extends Korisnik implements Serializable {
     }
 
     public Menadzer(Korisnik korisnik) {
-        this.korisnicko_ime = korisnik.korisnicko_ime;
+        this.korisnickoIme = korisnik.korisnickoIme;
         this.lozinka = korisnik.lozinka;
         this.ime = korisnik.ime;
         this.prezime = korisnik.prezime;
