@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LokacijaRepository extends JpaRepository<Lokacija, Long> {
+    //public Lokacija getByAdresa(String adresa);
 }
