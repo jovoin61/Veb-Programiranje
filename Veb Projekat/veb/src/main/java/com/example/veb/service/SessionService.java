@@ -17,4 +17,47 @@ public class SessionService {
         }
         return true;
     }
+
+    public String getKorisnickoIme(HttpSession session) {
+
+        Object korisnickoIme = session.getAttribute("korisnickoIme");
+        if (korisnickoIme == null) {
+            return "";
+        }
+
+        if (korisnickoIme.toString().isEmpty()) {
+            return "";
+        }
+
+        return korisnickoIme.toString();
+    }
+
+    public Uloga getUloga(HttpSession session) {
+
+        Object uloga = session.getAttribute("uloga");
+
+        if (uloga == null) {
+            return null;
+        }
+
+        if (uloga.toString().isEmpty()){
+            return null;
+        }
+
+        return (Uloga) uloga;
+    }
+
+    public boolean proveri(HttpSession session) {
+        if(session == null){
+            return false;
+        }
+
+        String korisnickoIme = getKorisnickoIme(session);
+        Uloga uloga = getUloga(session);
+
+        if (korisnickoIme == null || korisnickoIme.isEmpty())
+            return false;
+
+        return !uloga.toString().isEmpty();
+    }
 }

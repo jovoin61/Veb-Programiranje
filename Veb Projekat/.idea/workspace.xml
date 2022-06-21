@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d469d6a6-6a16-4438-a8be-7a87d2a6bc05" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/controller/RegistracijaRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/controller/RegistracijaRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/service/RegistracijaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/service/RegistracijaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/controller/LoginRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/controller/LoginRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/service/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/service/SessionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/service/SessionService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +93,7 @@
       <workItem from="1655556941620" duration="8891000" />
       <workItem from="1655576945953" duration="7956000" />
       <workItem from="1655587437669" duration="4241000" />
-      <workItem from="1655739331390" duration="23805000" />
+      <workItem from="1655739331390" duration="28009000" />
     </task>
     <servers />
   </component>
