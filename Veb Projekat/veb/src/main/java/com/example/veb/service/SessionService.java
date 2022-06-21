@@ -10,5 +10,11 @@ import javax.servlet.http.HttpSession;
 
 @Service
 public class SessionService {
-
+    public Boolean da_li_je_korisnik(Uloga uloga, HttpSession session){
+        Korisnik ulogovani_korisnik = (Korisnik) session.getAttribute("korisnik");
+        if(ulogovani_korisnik == null || ulogovani_korisnik.getUloga() != uloga){
+            return false;
+        }
+        return true;
+    }
 }

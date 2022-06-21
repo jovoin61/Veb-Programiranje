@@ -9,7 +9,7 @@ public class Restoran implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_restorana;
+    private Long id;
 
     @Column
     private String naziv ;
@@ -33,12 +33,12 @@ public class Restoran implements Serializable {
         this.lokacija = lokacija;
     }
 
-    public Long getId_restorana() {
-        return id_restorana;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_restorana(Long id_restorana) {
-        this.id_restorana = id_restorana;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNaziv() {

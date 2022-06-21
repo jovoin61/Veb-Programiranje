@@ -10,6 +10,6 @@ import java.util.Set;
 
 @Repository
 public interface KomentarRepository extends JpaRepository<Komentar, Long> {
-    //public Set<Komentar> getByRestoran(Restoran restoran);
-    //public Set<Komentar> getByRestoran(Kupac kupac);
+    public Set<Komentar> getByRestoran(Restoran restoran);
+    public Set<Komentar> getByRestoran(Kupac kupac);
 }

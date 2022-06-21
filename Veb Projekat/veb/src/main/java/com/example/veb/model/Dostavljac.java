@@ -19,13 +19,13 @@ public class Dostavljac extends Korisnik implements Serializable {
         this.uloga = Uloga.DOSTAVLJAC;
     }
 
-    public Dostavljac(String korisnicko_ime, String lozinka, String ime, String prezime, Pol pol, Date datum_rodjenja) {
-        super(korisnicko_ime, lozinka, ime, prezime, pol, datum_rodjenja);
+    public Dostavljac(String korisnickoIme, String lozinka, String ime, String prezime, Pol pol, Date datumRodjenja) {
+        super(korisnickoIme, lozinka, ime, prezime, pol, datumRodjenja);
         this.uloga = Uloga.DOSTAVLJAC;
     }
 
-    public Dostavljac(String korisnicko_ime, String lozinka, String ime, String prezime, Pol pol, Date datum_rodjenja, Set<Porudzbina> porudzbine) {
-        super(korisnicko_ime, lozinka, ime, prezime, pol, datum_rodjenja);
+    public Dostavljac(String korisnickoIme, String lozinka, String ime, String prezime, Pol pol, Date datumRodjenja, Set<Porudzbina> porudzbine) {
+        super(korisnickoIme, lozinka, ime, prezime, pol, datumRodjenja);
         this.porudzbine = porudzbine;
         this.uloga = Uloga.DOSTAVLJAC;
     }
@@ -36,7 +36,7 @@ public class Dostavljac extends Korisnik implements Serializable {
         this.ime = korisnik.ime;
         this.prezime = korisnik.prezime;
         this.pol = korisnik.pol;
-        this.datum_rodjenja = korisnik.datum_rodjenja;
+        this.datumRodjenja = korisnik.datumRodjenja;
 
         this.uloga = Uloga.DOSTAVLJAC;
 

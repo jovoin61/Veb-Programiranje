@@ -19,7 +19,7 @@ public class Komentar implements Serializable {
     private Restoran restoran;
 
     @Column
-    private String tekst_komentara;
+    private String tekstKomentara;
 
     @Column
     private Integer ocena;
@@ -27,10 +27,10 @@ public class Komentar implements Serializable {
     public Komentar() {
     }
 
-    public Komentar(Kupac kupac, Restoran restoran, String tekst_komentara, Integer ocena) {
+    public Komentar(Kupac kupac, Restoran restoran, String tekstKomentara, Integer ocena) {
         this.kupac = kupac;
         this.restoran = restoran;
-        this.tekst_komentara = tekst_komentara;
+        this.tekstKomentara = tekstKomentara;
         this.ocena = ocena;
     }
     public Kupac getKupac() {
@@ -50,11 +50,11 @@ public class Komentar implements Serializable {
     }
 
     public String getTekst_komentara() {
-        return tekst_komentara;
+        return tekstKomentara;
     }
 
     public void setTekst_komentara(String tekst_komentara) {
-        this.tekst_komentara = tekst_komentara;
+        this.tekstKomentara = tekst_komentara;
     }
 
     public Integer getOcena() {

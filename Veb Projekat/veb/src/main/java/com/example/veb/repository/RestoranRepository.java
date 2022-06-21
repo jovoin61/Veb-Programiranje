@@ -12,7 +12,7 @@ import java.util.Set;
 public interface RestoranRepository extends JpaRepository<Restoran, Long> {
     //public Restoran getById(Long id);
     public Restoran findByNaziv(String naziv);
-    //public Restoran getByLokacija(Lokacija lokacija);
-    //public Set<Restoran> findByTip(String tip);
+    public Restoran getByLokacija(Lokacija lokacija);
+    public Set<Restoran> findByTip(String tip);
 
 }

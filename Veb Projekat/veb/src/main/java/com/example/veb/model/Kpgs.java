@@ -11,17 +11,17 @@ public class Kpgs implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_kpgs;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "artikal_id")
     private Artikal artikal;
 
     @Column
-    private Double ukupna_cena;
+    private Double ukupnaCena;
 
     @Column
-    private Integer broj_artikala;
+    private Integer brojArtikala;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "porudzbina_id")
@@ -31,26 +31,26 @@ public class Kpgs implements Serializable {
     public Kpgs() {
     }
 
-    public Kpgs(Artikal artikal, Integer broj_artikala) {
+    public Kpgs(Artikal artikal, Integer brojArtikala) {
         this.artikal = artikal;
-        this.broj_artikala = broj_artikala;
-        this.ukupna_cena = artikal.getCena() * broj_artikala;
+        this.brojArtikala = brojArtikala;
+        this.ukupnaCena = artikal.getCena() * brojArtikala;
     }
 
-    public Double getUkupna_cena() {
-        return ukupna_cena;
+    public Double getUkupnaCena() {
+        return ukupnaCena;
     }
 
-    public void setUkupna_cena(Double ukupna_cena) {
-        this.ukupna_cena = ukupna_cena;
+    public void setUkupnaCena(Double ukupnaCena) {
+        this.ukupnaCena = ukupnaCena;
     }
 
-    public Long getId_kpgs() {
-        return id_kpgs;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_kpgs(Long id_kpgs) {
-        this.id_kpgs = id_kpgs;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Artikal getArtikal() {
@@ -61,12 +61,12 @@ public class Kpgs implements Serializable {
         this.artikal = artikal;
     }
 
-    public Integer getBroj_artikala() {
-        return broj_artikala;
+    public Integer getBrojArtikala() {
+        return brojArtikala;
     }
 
-    public void setBroj_artikala(Integer broj_artikala) {
-        this.broj_artikala = broj_artikala;
+    public void setBrojArtikala(Integer brojArtikala) {
+        this.brojArtikala = brojArtikala;
     }
 
     public Porudzbina getPorudzbina() {

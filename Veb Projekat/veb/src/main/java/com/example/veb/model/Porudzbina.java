@@ -27,7 +27,7 @@ public class Porudzbina implements Serializable {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column
-    private Date vreme_porudzbine;
+    private Date vremePorudzbine;
 
     @Column
     private Double cena;
@@ -47,10 +47,10 @@ public class Porudzbina implements Serializable {
     public Porudzbina() {
     }
 
-    public Porudzbina(@NotNull Set<Kpgs> stavke, Restoran restoran, Date vreme_porudzbine, Kupac kupac, Status status) {
+    public Porudzbina(@NotNull Set<Kpgs> stavke, Restoran restoran, Date vremePorudzbine, Kupac kupac, Status status) {
         this.stavke = stavke;
         this.restoran = restoran;
-        this.vreme_porudzbine = vreme_porudzbine;
+        this.vremePorudzbine = vremePorudzbine;
         this.kupac = kupac;
         this.status = status;
     }
@@ -81,12 +81,12 @@ public class Porudzbina implements Serializable {
         this.restoran = restoran;
     }
 
-    public Date getVreme_porudzbine() {
-        return vreme_porudzbine;
+    public Date getVremePorudzbine() {
+        return vremePorudzbine;
     }
 
-    public void setVreme_porudzbine(Date vreme_porudzbine) {
-        this.vreme_porudzbine = vreme_porudzbine;
+    public void setVremePorudzbine(Date vremePorudzbine) {
+        this.vremePorudzbine = vremePorudzbine;
     }
 
     public Double getCena() {

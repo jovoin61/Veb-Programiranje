@@ -8,13 +8,13 @@ public class Lokacija implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_lokacije;
+    private Long id;
 
     @Column
-    private Double geografska_duzina;
+    private Double geografskaDuzina;
 
     @Column
-    private Double geografska_sirina;
+    private Double geografskaSirina;
 
     @Column
     private String adresa;
@@ -22,26 +22,26 @@ public class Lokacija implements Serializable {
     public Lokacija() {
     }
 
-    public Lokacija(Double geografska_duzina, Double geografska_sirina, String adresa) {
-        this.geografska_duzina = geografska_duzina;
-        this.geografska_sirina = geografska_sirina;
+    public Lokacija(Double geografskaDuzina, Double geografskaSirina, String adresa) {
+        this.geografskaDuzina = geografskaDuzina;
+        this.geografskaSirina = geografskaSirina;
         this.adresa = adresa;
     }
 
-    public Double getGeografska_duzina() {
-        return geografska_duzina;
+    public Double getGeografskaDuzina() {
+        return geografskaDuzina;
     }
 
-    public void setGeografska_duzina(Double geografska_duzina) {
-        this.geografska_duzina = geografska_duzina;
+    public void setGeografskaDuzina(Double geografskaDuzina) {
+        this.geografskaDuzina = geografskaDuzina;
     }
 
-    public Double getGeografska_sirina() {
-        return geografska_sirina;
+    public Double getGeografskaSirina() {
+        return geografskaSirina;
     }
 
-    public void setGeografska_sirina(Double geografska_sirina) {
-        this.geografska_sirina = geografska_sirina;
+    public void setGeografskaSirina(Double geografskaSirina) {
+        this.geografskaSirina = geografskaSirina;
     }
 
     public String getAdresa() {
@@ -52,12 +52,12 @@ public class Lokacija implements Serializable {
         this.adresa = adresa;
     }
 
-    public Long getId_lokacije() {
-        return id_lokacije;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_lokacije(Long id_lokacije) {
-        this.id_lokacije = id_lokacije;
+    public void setId(Long id) {
+        this.id = id;
     }
 
 

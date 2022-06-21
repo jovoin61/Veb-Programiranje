@@ -52,7 +52,7 @@ public class DatabaseConfiguration {  //nemam knjizicu
         Calendar kalendar = new GregorianCalendar();
 
         kalendar.set(1963, Calendar.JUNE,14);
-        Korisnik ranbo = new Kupac("baustelac_ranbo", "fap", "antonije", "pusic", Pol.MUSKI, kalendar.getTime());
+        Korisnik ranbo = new Korisnik("baustelac_ranbo", "fap", "antonije", "pusic", Pol.MUSKI, kalendar.getTime());
         ranbo.setUloga(Uloga.ADMIN);
 
         Kupac testKupac = new Kupac("kupac", "kupac", "Test", "Kupac", Pol.ZENSKI, kalendar.getTime());
@@ -70,6 +70,11 @@ public class DatabaseConfiguration {  //nemam knjizicu
 
         menadzerRepository.save(dzemo);
 
+        Korisnik korisnik1 = new Korisnik("korisnik1", "korisnik123", "Korisnik1", "jedan", Pol.MUSKI, kalendar.getTime() );
+        korisnikRepository.save(korisnik1);
+
+        Korisnik korisnik2 = new Korisnik("korisnik2", "korisnik123", "Korisnik2", "dva", Pol.MUSKI, kalendar.getTime() );
+        korisnikRepository.save(korisnik2);
 
 
         Artikal menjac = new Artikal("Menjac" ,16.20, Tip.JELO,300,"Menjac od fapa");
@@ -130,7 +135,7 @@ public class DatabaseConfiguration {  //nemam knjizicu
 
 
         TipKupca tip1 = new TipKupca("zlatni",20,10);
-        testKupac.setTip_kupca(tip1);
+        testKupac.setTipKupca(tip1);
 
 
         tipKupcaRepository.save(tip1);

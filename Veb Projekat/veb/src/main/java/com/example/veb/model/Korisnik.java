@@ -8,7 +8,7 @@ import java.util.Date;
 public class Korisnik implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long id_korisnika;
+    protected Long id;
 
     @Column
     protected String korisnickoIme;
@@ -28,7 +28,7 @@ public class Korisnik implements Serializable {
 
     @Temporal(TemporalType.DATE)
     @Column
-    protected Date datum_rodjenja;
+    protected Date datumRodjenja;
 
     @Enumerated(EnumType.STRING)
     @Column
@@ -37,29 +37,29 @@ public class Korisnik implements Serializable {
     public Korisnik() {
     }
 
-    public Korisnik(String korisnicko_ime, String lozinka, String ime, String prezime, Pol pol, Date datum_rodjenja) {
+    public Korisnik(String korisnickoIme, String lozinka, String ime, String prezime, Pol pol, Date datumRodjenja) {
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
         this.ime = ime;
         this.prezime = prezime;
         this.pol = pol;
-        this.datum_rodjenja = datum_rodjenja;
+        this.datumRodjenja = datumRodjenja;
     }
 
 
-    public Long getId_korisnika() {
-        return id_korisnika;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_korisnika(Long id_korisnika) {
-        this.id_korisnika = id_korisnika;
+    public void setId(Long id_korisnika) {
+        this.id = id_korisnika;
     }
 
-    public String getKorisnicko_ime() {
+    public String getKorisnickoIme() {
         return korisnickoIme;
     }
 
-    public void setKorisnicko_ime(String korisnicko_ime) {
+    public void setKorisnickoIme(String korisnicko_ime) {
         this.korisnickoIme = korisnicko_ime;
     }
 
@@ -95,12 +95,12 @@ public class Korisnik implements Serializable {
         this.pol = pol;
     }
 
-    public Date getDatum_rodjenja() {
-        return datum_rodjenja;
+    public Date getDatumRodjenja() {
+        return datumRodjenja;
     }
 
-    public void setDatum_rodjenja(Date datum_rodjenja) {
-        this.datum_rodjenja = datum_rodjenja;
+    public void setDatumRodjenja(Date datumRodjenja) {
+        this.datumRodjenja = datumRodjenja;
     }
 
     public Uloga getUloga() {

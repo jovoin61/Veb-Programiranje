@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ArtikalRepository extends JpaRepository<Artikal, Long> {
-    //public Artikal getById(Long id);
+    public Artikal getById(Long id);
 }

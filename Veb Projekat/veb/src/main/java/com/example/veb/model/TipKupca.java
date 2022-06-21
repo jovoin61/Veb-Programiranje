@@ -9,7 +9,7 @@ public class TipKupca implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_tip_kupca;
+    private Long id;
 
     @Column
     private String ime;
@@ -18,15 +18,15 @@ public class TipKupca implements Serializable {
     private Integer popust;
 
     @Column
-    private Integer trazeni_broj_bodova;
+    private Integer trazeniBrojBodova;
 
     public TipKupca() {
     }
 
-    public TipKupca(String ime, Integer popust, Integer trazeni_broj_bodova) {
+    public TipKupca(String ime, Integer popust, Integer trazeniBrojBodova) {
         this.ime = ime;
         this.popust = popust;
-        this.trazeni_broj_bodova = trazeni_broj_bodova;
+        this.trazeniBrojBodova = trazeniBrojBodova;
     }
 
     public String getIme() {
@@ -45,19 +45,19 @@ public class TipKupca implements Serializable {
         this.popust = popust;
     }
 
-    public Integer getTrazeni_broj_bodova() {
-        return trazeni_broj_bodova;
+    public Integer getTrazeniBrojBodova() {
+        return trazeniBrojBodova;
     }
 
-    public void setTrazeni_broj_bodova(Integer trazeni_broj_bodova) {
-        this.trazeni_broj_bodova = trazeni_broj_bodova;
+    public void setTrazeniBrojBodova(Integer trazeni_broj_bodova) {
+        this.trazeniBrojBodova = trazeni_broj_bodova;
     }
 
-    public Long getId_tip_kupca() {
-        return id_tip_kupca;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_tip_kupca(Long id_tip_kupca) {
-        this.id_tip_kupca = id_tip_kupca;
+    public void setId(Long id) {
+        this.id = id;
     }
 }
