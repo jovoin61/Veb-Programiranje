@@ -41,8 +41,8 @@ public class AdminRestController {
     @PostMapping("/admin/dodavanje/menadzer")
     public ResponseEntity dodavanje_menadzera(@RequestBody Korisnik korisnik, HttpSession session) {
         if(sessionService.da_li_je_korisnik(Uloga.ADMIN, session)){
-            String response = menadzerService.dodaj_menadzera(korisnik);
-            return new ResponseEntity(response, HttpStatus.OK);
+            //String response = menadzerService.dodaj_menadzera(korisnik);
+            return new ResponseEntity(menadzerService.dodaj_menadzera(korisnik), HttpStatus.OK);
         }
 
         return new ResponseEntity("Niste ADMIN!", HttpStatus.FORBIDDEN);
