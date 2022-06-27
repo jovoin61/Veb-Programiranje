@@ -1,9 +1,12 @@
 package com.example.veb.controller;
 
 import com.example.veb.dto.KorisnikDto;
+import com.example.veb.dto.RestoranDto;
 import com.example.veb.model.Korisnik;
+import com.example.veb.model.Menadzer;
 import com.example.veb.model.Restoran;
 import com.example.veb.model.Uloga;
+import com.example.veb.repository.RestoranRepository;
 import com.example.veb.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,6 +34,9 @@ public class AdminRestController {
     @Autowired
     SessionService sessionService;
 
+    @Autowired
+    RestoranRepository restoranRepository;
+
 
     @PostMapping("/admin/dodavanje/menadzer")
     public ResponseEntity dodavanje_menadzera(@RequestBody Korisnik korisnik, HttpSession session) {
@@ -53,10 +59,30 @@ public class AdminRestController {
     }
 
     @PostMapping("/admin/dodavanje/restoran")
-    public ResponseEntity dodavanje_restorana(@RequestBody Restoran restoran, HttpSession session){
+    public ResponseEntity<?> dodavanje_restorana(@RequestBody RestoranDto restoranDto, HttpSession session){
         if(sessionService.da_li_je_korisnik(Uloga.ADMIN, session)){
-            String response = restoranSerevice.dodaj_restoran(restoran);
-            return new ResponseEntity(response, HttpStatus.OK);
+            String poruka;
+            ResponseEntity<String> kreirajRestoran;
+            Restoran restoran = new Restoran(restoranDto);
+
+            try {
+                restoranSerevice.dodaj_restoran(restoranDto);
+            } catch (Exception e) {
+                poruka = "Restoran vec postoji.";
+                kreirajRestoran = ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(poruka);
+            }
+
+            try {
+                restoranRepository.saveAndFlush(restoran);
+                poruka = "Restoran uspesno kreiran.";
+                kreirajRestoran = ResponseEntity.ok(poruka);
+            } catch (Exception e) {
+                poruka = "Neuspesno kreiranje restorana, pokusajte ponovo...";
+                System.out.println(e.getMessage());
+                kreirajRestoran = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(poruka);
+            }
+
+            return kreirajRestoran;
         }
 
         return new ResponseEntity("Niste ADMIN!", HttpStatus.FORBIDDEN);

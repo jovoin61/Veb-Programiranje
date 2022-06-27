@@ -1,5 +1,7 @@
 package com.example.veb.model;
 
+import com.example.veb.dto.RestoranDto;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
@@ -31,6 +33,12 @@ public class Restoran implements Serializable {
         this.naziv = naziv;
         this.tip = tip;
         this.lokacija = lokacija;
+    }
+
+    public Restoran (RestoranDto restoranDto){
+        this.naziv = restoranDto.getNaziv();
+        this.tip = restoranDto.getTip();
+        //this.lokacija = restoranDto.getLokacija();
     }
 
     public Long getId() {
