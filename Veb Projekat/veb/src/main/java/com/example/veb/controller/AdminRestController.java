@@ -2,10 +2,7 @@ package com.example.veb.controller;
 
 import com.example.veb.dto.KorisnikDto;
 import com.example.veb.dto.RestoranDto;
-import com.example.veb.model.Korisnik;
-import com.example.veb.model.Menadzer;
-import com.example.veb.model.Restoran;
-import com.example.veb.model.Uloga;
+import com.example.veb.model.*;
 import com.example.veb.repository.RestoranRepository;
 import com.example.veb.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +33,9 @@ public class AdminRestController {
 
     @Autowired
     RestoranRepository restoranRepository;
+
+    @Autowired
+    LokacijaService lokacijaService;
 
 
     @PostMapping("/admin/dodavanje/menadzer")
@@ -83,6 +83,16 @@ public class AdminRestController {
             }
 
             return kreirajRestoran;
+        }
+
+        return new ResponseEntity("Niste ADMIN!", HttpStatus.FORBIDDEN);
+    }
+
+    @PostMapping("admin/restoran/{naziv_restorana}/dodaj-lokaciju")
+    public ResponseEntity dodavanje_lokacije_restoranu(@PathVariable (value="naziv_restorana") String naziv_restorana, @RequestBody Lokacija lokacija, HttpSession session){
+        if(sessionService.da_li_je_korisnik(Uloga.ADMIN, session)){
+            String response = lokacijaService.dodaj_lokaciju(lokacija, naziv_restorana);
+            return new ResponseEntity(response, HttpStatus.OK);
         }
 
         return new ResponseEntity("Niste ADMIN!", HttpStatus.FORBIDDEN);
