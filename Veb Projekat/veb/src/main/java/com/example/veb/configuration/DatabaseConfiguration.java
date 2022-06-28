@@ -132,7 +132,10 @@ public class DatabaseConfiguration {  //nemam knjizicu
         //porudzbinaRepository.save(p2);
         porudzbinaRepository.saveAll(List.of(p1,p2));
 
-
+        /*Set<Porudzbina> asdf = new HashSet<>();
+        asdf.add(p1);
+        asdf.add(p2);
+        testKupac.setPorudzbine(asdf);*/
 
         TipKupca tip1 = new TipKupca("zlatni",20,10);
         testKupac.setTipKupca(tip1);
