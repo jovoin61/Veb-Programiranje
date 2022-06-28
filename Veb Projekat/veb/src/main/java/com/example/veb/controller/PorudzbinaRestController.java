@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -23,7 +24,7 @@ public class PorudzbinaRestController {
     PorudzbinaService porudzbinaService;
 
     @GetMapping("/porudzbine")
-    public ResponseEntity<Set<PorudzbinaDto>> ispisi_porudzbine(HttpSession session){
+    public ResponseEntity<List<PorudzbinaDto>> ispisi_porudzbine(HttpSession session){
         if(sessionService.da_li_je_korisnik(Uloga.KUPAC, session)){
 
             Korisnik korisnik = (Korisnik) session.getAttribute("korisnik");
@@ -31,7 +32,7 @@ public class PorudzbinaRestController {
                 System.out.println("Nema sesije!");
                 return new ResponseEntity<>("Nema sesije!",HttpStatus.OK);
             }*/
-            return new ResponseEntity<Set<PorudzbinaDto>>(porudzbinaService.prikaz_svih_porudzbina(korisnik), HttpStatus.OK);
+            return new ResponseEntity<List<PorudzbinaDto>>(porudzbinaService.prikaz_svih_porudzbina(korisnik), HttpStatus.OK);
         }
         return new ResponseEntity("Niste Kupac", HttpStatus.FORBIDDEN);
     }

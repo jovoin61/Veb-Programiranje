@@ -14,7 +14,7 @@ public class PorudzbinaDto{
         private RestoranDto restoran;
         private Date vremePorudzbine;
         private Double cena;
-        private KorisnikDto kupac; //KupacDto
+       //private KorisnikDto kupac; //KupacDto
         private Status status;
 
         public PorudzbinaDto() {
@@ -26,7 +26,7 @@ public class PorudzbinaDto{
                 this.restoran = new RestoranDto(p.getRestoran());
                 this.vremePorudzbine = p.getVremePorudzbine();
                 this.cena = p.getCena();
-                this.kupac = new KorisnikDto(p.getKupac());
+                //this.kupac = new KorisnikDto(p.getKupac());
                 this.status = p.getStatus();
         }
 
@@ -70,13 +70,13 @@ public class PorudzbinaDto{
                 this.cena = cena;
         }
 
-        public KorisnikDto getKupac() {
+        /*public KorisnikDto getKupac() {
                 return kupac;
         }
 
         public void setKupac(KorisnikDto kupac) {
                 this.kupac = kupac;
-        }
+        }*/
 
         public Status getStatus() {
                 return status;

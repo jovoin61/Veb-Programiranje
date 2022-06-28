@@ -9,7 +9,9 @@ import com.example.veb.repository.PorudzbinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -22,22 +24,20 @@ public class PorudzbinaService {
     @Autowired
     KupacService kupacService;
 
-    public Set<PorudzbinaDto> prikaz_svih_porudzbina(Korisnik korisnik){
+    public List<PorudzbinaDto> prikaz_svih_porudzbina(Korisnik korisnik){
 
         Kupac kupac = kupacService.findKupac(korisnik);
-        if(kupac == null){
-            return null;
-        }
+
 
         Set<Porudzbina> porudzbine = porudzbinaRepository.getByKupac(kupac);
-        Set<PorudzbinaDto> porudzbinaDtos = new HashSet<>();
-
+       // Set<PorudzbinaDto> porudzbinaDtos = new HashSet<>();
+        List<PorudzbinaDto> porudzbinaDtoList = new ArrayList<>();
         for(Porudzbina p : porudzbine){
             PorudzbinaDto temp = new PorudzbinaDto(p);
-            porudzbinaDtos.add(temp);
+            porudzbinaDtoList.add(temp);
         }
 
 
-        return porudzbinaDtos;
+        return porudzbinaDtoList;
     }
 }

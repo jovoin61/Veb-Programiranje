@@ -1,15 +1,15 @@
 package com.example.veb.model;
 
 
-
-
 import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
+
 
 @Entity
 public class Porudzbina implements Serializable {
@@ -19,7 +19,7 @@ public class Porudzbina implements Serializable {
     private UUID uuid;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "porudzbina")
-    private Set<Kpgs> stavke;
+    private Set<Kpgs> stavke = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "restoran_id")
@@ -30,7 +30,7 @@ public class Porudzbina implements Serializable {
     private Date vremePorudzbine;
 
     @Column
-    private Double cena;
+    private Double cena = 0.00;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "kupac_id")
@@ -53,6 +53,12 @@ public class Porudzbina implements Serializable {
         this.vremePorudzbine = vremePorudzbine;
         this.kupac = kupac;
         this.status = status;
+        for (Kpgs k : stavke){
+          this.cena  += k.getUkupnaCena();
+        }
+
+
+
     }
 
 
