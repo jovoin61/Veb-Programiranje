@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.*;
 
 @Configuration
-public class DatabaseConfiguration {  //nemam knjizicu
+public class DatabaseConfiguration {
 
     @Autowired
     private ArtikalRepository artikalRepository;
@@ -60,10 +60,7 @@ public class DatabaseConfiguration {  //nemam knjizicu
         korisnikRepository.save(ranbo);
         kupacRepository.save(testKupac);
 
-        kalendar.set(1953, Calendar.JANUARY,19);
-        Dostavljac brko = new Dostavljac("brko123", "brko123", "Brko", "Brkic", Pol.MUSKI, kalendar.getTime());
 
-        dostavljacRepository.save(brko);
 
         kalendar.set(1999, Calendar.MARCH,24);
         Menadzer dzemo = new Menadzer("zastavnik-dzemo", "celicnakrila", "dzemo", "dzemic", Pol.MUSKI, kalendar.getTime());
@@ -93,12 +90,12 @@ public class DatabaseConfiguration {  //nemam knjizicu
         artikli.add(volan);
         artikli.add(felna);
 
-        artikalRepository.saveAll(List.of(volan, felna, menjac));
 
         Restoran r = new Restoran();
-
         Restoran fap = new Restoran("F.A.P.", "kamionski", priboj);
 
+        fap.setArtikli(Set.of(menjac,volan,felna));
+        artikalRepository.saveAll(List.of(volan, felna, menjac));
         restoranRepository.saveAll(List.of(fap, r));
 
         dzemo.setRestoran(fap);
@@ -123,14 +120,34 @@ public class DatabaseConfiguration {  //nemam knjizicu
 
         stavke2.add(s2);
         stavke2.add(s5);
-        kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
+       // kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
+
+        Dostavljac brko = new Dostavljac("brko123", "brko123", "Brko", "Brkic", Pol.MUSKI, kalendar.getTime());
+        //dostavljacRepository.save(brko);
+        Dostavljac micko = new Dostavljac("mica", "mica", "Micko", "Mickovic", Pol.MUSKI, kalendar.getTime());
+        dostavljacRepository.save(micko);
 
         kalendar.set(2021, Calendar.MAY,26);
         Porudzbina p1 = new Porudzbina(stavke1, fap , kalendar.getTime() , testKupac , Status.CEKA_DOSTAVLJACA);
         //porudzbinaRepository.saveAndFlush(p1);
-        Porudzbina p2 = new Porudzbina(stavke2, fap , kalendar.getTime() , testKupac , Status.CEKA_DOSTAVLJACA);
+        Porudzbina p2 = new Porudzbina(stavke2, fap , kalendar.getTime() , testKupac , Status.U_TRANSPORTU);
+        //p2.setDostavljac(micko);
         //porudzbinaRepository.save(p2);
+        s1.setPorudzbina(p1);
+        s2.setPorudzbina(p2);
+        s3.setPorudzbina(p1);
+        s4.setPorudzbina(p1);
+        s5.setPorudzbina(p2);
         porudzbinaRepository.saveAll(List.of(p1,p2));
+        Porudzbina p3 = new Porudzbina(stavke2, fap , kalendar.getTime() , testKupac , Status.U_PRIPREMI);
+//        porudzbinaRepository.save(p3);
+        //kalendar.set(1953, Calendar.JANUARY,19);
+        //micko.setPorudzbine(Set.of(p2));
+        brko.setPorudzbine(Set.of(p2));
+        dostavljacRepository.save(brko);
+
+        kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
+       // dostavljacRepository.save(brko);
 
         /*Set<Porudzbina> asdf = new HashSet<>();
         asdf.add(p1);

@@ -18,7 +18,7 @@ public class Porudzbina implements Serializable {
     @GeneratedValue
     private UUID uuid;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "porudzbina")
+    @OneToMany(cascade = CascadeType.ALL)//(fetch = FetchType.EAGER, mappedBy = "porudzbina")
     private Set<Kpgs> stavke = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -40,9 +40,9 @@ public class Porudzbina implements Serializable {
     @Column
     private Status status;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    /*@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "dostavljac_id")
-    private Dostavljac dostavljac;
+    private Dostavljac dostavljac;*/
 
     public Porudzbina() {
     }
@@ -56,10 +56,18 @@ public class Porudzbina implements Serializable {
         for (Kpgs k : stavke){
           this.cena  += k.getUkupnaCena();
         }
-
-
-
     }
+    /*public Porudzbina(@NotNull Set<Kpgs> stavke, Restoran restoran, Date vremePorudzbine, Kupac kupac, Status status,Dostavljac dostavljac) {
+        this.stavke = stavke;
+        this.restoran = restoran;
+        this.vremePorudzbine = vremePorudzbine;
+        this.kupac = kupac;
+        this.status = status;
+        for (Kpgs k : stavke){
+            this.cena  += k.getUkupnaCena();
+        }
+        this.dostavljac=dostavljac;
+    }*/
 
 
 
@@ -127,19 +135,12 @@ public class Porudzbina implements Serializable {
         this.stavke = stavke;
     }
 
-    public Dostavljac getDostavljac() {
+    /*public Dostavljac getDostavljac() {
         return dostavljac;
     }
 
     public void setDostavljac(Dostavljac dostavljac) {
         this.dostavljac = dostavljac;
-    }
+    }*/
 
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
 }

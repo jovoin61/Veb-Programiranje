@@ -23,8 +23,8 @@ public class Kpgs implements Serializable {
     @Column
     private Integer brojArtikala;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "porudzbina_id")
+    @ManyToOne(cascade = CascadeType.ALL)//(fetch = FetchType.EAGER)
+    //@JoinColumn(name = "porudzbina_id")
     @JsonIgnore
     private Porudzbina porudzbina;
 

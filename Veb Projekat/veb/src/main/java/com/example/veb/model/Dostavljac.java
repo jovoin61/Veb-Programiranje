@@ -11,7 +11,7 @@ import java.util.*;
 @Entity
 public class Dostavljac extends Korisnik implements Serializable {
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "dostavljac")
+    @OneToMany//(fetch = FetchType.EAGER, mappedBy = "dostavljac")
     @JsonIgnore
     private Set<Porudzbina> porudzbine = new HashSet<>();
 

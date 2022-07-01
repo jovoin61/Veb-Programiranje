@@ -19,7 +19,7 @@ public class Restoran implements Serializable {
     @Column
     private String tip;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "restoran")
+    @OneToMany//(fetch = FetchType.EAGER, mappedBy = "restoran")
     private Set<Artikal> artikli = new HashSet<>();
 
     @OneToOne(fetch = FetchType.EAGER)
