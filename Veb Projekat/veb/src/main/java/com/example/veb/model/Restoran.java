@@ -27,6 +27,7 @@ public class Restoran implements Serializable {
     @JoinColumn(name = "lokacija_id")
     private Lokacija lokacija;
 
+
     public Restoran() {
     }
 
@@ -81,6 +82,5 @@ public class Restoran implements Serializable {
     public void setLokacija(Lokacija lokacija) {
         this.lokacija = lokacija;
     }
-
 
 }
