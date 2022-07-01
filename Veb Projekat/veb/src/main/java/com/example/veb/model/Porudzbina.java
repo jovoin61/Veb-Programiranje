@@ -2,7 +2,8 @@ package com.example.veb.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.jetbrains.annotations.NotNull;
+import org.hibernate.annotations.GenericGenerator;
+
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,10 +17,12 @@ import java.util.UUID;
 public class Porudzbina implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(nullable = false)
     private UUID uuid;
 
-    @OneToMany//(cascade = CascadeType.ALL)//(fetch = FetchType.EAGER, mappedBy = "porudzbina")
+    @OneToMany(cascade = CascadeType.ALL)//(fetch = FetchType.EAGER, mappedBy = "porudzbina")
     private Set<Kpgs> stavke = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -69,21 +72,19 @@ public class Porudzbina implements Serializable {
         this.dostavljac=dostavljac;
     }*/
 
-
-
-    public UUID getUUID() {
+    public UUID getUuid() {
         return uuid;
     }
 
-    public void setUUID(UUID uuid) {
+    public void setUuid(UUID uuid) {
         this.uuid = uuid;
     }
 
-    public Set<Kpgs> getArtikli() {
+    public Set<Kpgs> getStavke() {
         return stavke;
     }
 
-    public void setArtikli(Set<Kpgs> stavke) {
+    public void setStavke(Set<Kpgs> stavke) {
         this.stavke = stavke;
     }
 
@@ -127,13 +128,6 @@ public class Porudzbina implements Serializable {
         this.status = status;
     }
 
-    public Set<Kpgs> getStavke() {
-        return stavke;
-    }
-
-    public void setStavke(Set<Kpgs> stavke) {
-        this.stavke = stavke;
-    }
 
     /*public Dostavljac getDostavljac() {
         return dostavljac;

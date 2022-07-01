@@ -108,7 +108,7 @@ public class DatabaseConfiguration {
         Kpgs s3 = new Kpgs(volan, 2);
         Kpgs s4 = new Kpgs(felna, 3);
         Kpgs s5 = new Kpgs(felna, 2);
-        kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
+        //kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
 
         Dostavljac brko = new Dostavljac("brko123", "brko123", "Brko", "Brkic", Pol.MUSKI, kalendar.getTime());
 
@@ -120,16 +120,26 @@ public class DatabaseConfiguration {
         Porudzbina p2 = new Porudzbina( aa , kalendar.getTime() , testKupac , Status.U_TRANSPORTU);
         p1.setStavke(Set.of(s1,s3,s4));
         p2.setStavke(Set.of(s2,s5));
-        kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
+       // porudzbinaRepository.saveAll(List.of(p1,p2));
+       // kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
+       // porudzbinaRepository.saveAll(List.of(p1,p2));
+        System.out.println("kurtoncina");
+        System.out.println(s1.getPorudzbina());
+        System.out.println(p1.getStavke());
+        s1.setPorudzbina(p1);
+        s2.setPorudzbina(p2);
+        s3.setPorudzbina(p1);
+        s4.setPorudzbina(p1);
+        s5.setPorudzbina(p2);
         porudzbinaRepository.saveAll(List.of(p1,p2));
+        kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
 
-
-
-//        porudzbinaRepository.save(p3);
-        //kalendar.set(1953, Calendar.JANUARY,19);
-        //micko.setPorudzbine(Set.of(p2));
+        //kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
+        //porudzbinaRepository.saveAll(List.of(p1,p2));
+        //kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
         brko.setPorudzbine(Set.of(p2));
         dostavljacRepository.save(brko);
+
 
 
         System.out.println(p1.getStavke());

@@ -10,7 +10,7 @@ import java.util.*;
 public class PorudzbinaDto{
 
         private UUID uuid;
-        //private Set<Kpgs> stavke = new HashSet<>();
+        private Set<Kpgs> stavke = new HashSet<>();
         private RestoranDto restoran;
         private Date vremePorudzbine;
         private Double cena;
@@ -21,8 +21,8 @@ public class PorudzbinaDto{
         }
 
         public PorudzbinaDto(Porudzbina p) {
-                this.uuid = p.getUUID();
-                //this.stavke = p.getStavke();
+                this.uuid = p.getUuid();
+                this.stavke = p.getStavke();
                // setStavke(p.getStavke());
                 this.restoran = new RestoranDto(p.getRestoran());
                 this.vremePorudzbine = p.getVremePorudzbine();
@@ -39,13 +39,13 @@ public class PorudzbinaDto{
                 this.uuid = uuid;
         }
 
-       /* public Set<Kpgs> getStavke() {
+        public Set<Kpgs> getStavke() {
                 return stavke;
         }
 
         public void setStavke(Set<Kpgs> stavke) {
                 this.stavke = stavke;
-        }*/
+        }
 
         public RestoranDto getRestoran() {
                 return restoran;

@@ -27,19 +27,20 @@ public class Kpgs implements Serializable {
     //@JoinColumn(name = "porudzbina_id")
     @JsonIgnore
     private Porudzbina porudzbina;*/
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnore
     private Porudzbina porudzbina;
 
     public Kpgs() {
+        super();
     }
 
-    public Kpgs(Porudzbina porudzbina1,Artikal artikal, Integer brojArtikala) {
+   /* public Kpgs(Porudzbina porudzbina1,Artikal artikal, Integer brojArtikala) {
         this.porudzbina = porudzbina1;
         this.artikal = artikal;
         this.brojArtikala = brojArtikala;
         this.ukupnaCena = artikal.getCena() * brojArtikala;
-    }
+    }*/
     public Kpgs(Artikal artikal, Integer brojArtikala) {
         this.artikal = artikal;
         this.brojArtikala = brojArtikala;
@@ -79,13 +80,13 @@ public class Kpgs implements Serializable {
         this.brojArtikala = brojArtikala;
     }
 
-    /*public Porudzbina getPorudzbina() {
+    public Porudzbina getPorudzbina() {
         return porudzbina;
     }
 
     public void setPorudzbina(Porudzbina porudzbina) {
         this.porudzbina = porudzbina;
-    }*/
+    }
 
 
 }
