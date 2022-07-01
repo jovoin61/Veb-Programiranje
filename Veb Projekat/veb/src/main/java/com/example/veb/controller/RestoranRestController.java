@@ -1,6 +1,7 @@
 package com.example.veb.controller;
 
 
+import com.example.veb.dto.PretragaRestoranDto;
 import com.example.veb.dto.PrikazRestoranaDto;
 import com.example.veb.dto.RestoranDto;
 import com.example.veb.model.Komentar;
@@ -11,10 +12,9 @@ import com.example.veb.service.RestoranSerevice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,5 +58,14 @@ public class RestoranRestController {
 
 
         return new ResponseEntity(restoranZaPrikaz, HttpStatus.OK);
+    }
+
+    @GetMapping("restoran/pretraga")
+    public ResponseEntity<?>  pretraga_restorana(@RequestBody PretragaRestoranDto prd, HttpSession session){
+        List<Restoran> restorani = restoranSerevice.pretraga(prd);
+
+        if(restorani.isEmpty()) return new ResponseEntity<>("Ne postoji dati restoran", HttpStatus.OK);
+
+        return new ResponseEntity<>(restorani, HttpStatus.OK);
     }
 }

@@ -2,6 +2,7 @@ package com.example.veb.service;
 
 
 import com.example.veb.dto.KomentarDto;
+import com.example.veb.dto.PretragaRestoranDto;
 import com.example.veb.dto.PrikazRestoranaDto;
 import com.example.veb.dto.RestoranDto;
 import com.example.veb.model.Komentar;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class RestoranSerevice {
@@ -81,5 +83,83 @@ public class RestoranSerevice {
         restoranZaPrikaz.setKomentari(komentari);
 
         return restoranZaPrikaz;
+    }
+
+
+    public List<Restoran> pretraga(PretragaRestoranDto prd){
+        List<Restoran> sviRestorani = restoranRepository.findAll();
+
+        Set<Restoran> poNazivu = new HashSet<>();
+        Set<Restoran> poTipu = new HashSet<>();
+        Set<Restoran> poAdresi = new HashSet<>();
+
+        for(Restoran r : sviRestorani){
+            if(prd.getNaziv() != null)
+                if(prd.getNaziv().equals(r.getNaziv())){
+                    poNazivu.add(r);
+                }
+
+            if(prd.getTip() != null)
+                if(prd.getTip().equals(r.getTip())){
+                    poTipu.add(r);
+                }
+
+            if(prd.getLokacija() != null)
+                if(prd.getLokacija().equals(r.getLokacija().getAdresa())){
+                    poAdresi.add(r);
+                }
+        }
+
+        Set<Restoran> restorani = new HashSet<>();
+        //111
+        if(prd.getNaziv() != null && prd.getTip() != null && prd.getLokacija() != null){
+            poNazivu.retainAll(poTipu);
+            poNazivu.retainAll(poAdresi);
+
+            restorani = poNazivu;
+        }
+
+        //011
+        if(prd.getNaziv() == null && prd.getTip() != null && prd.getLokacija() != null){
+            poTipu.retainAll(poAdresi);
+
+            restorani = poTipu;
+        }
+
+        //001
+        if(prd.getNaziv() == null && prd.getTip() == null && prd.getLokacija() != null){
+            restorani = poAdresi;
+        }
+
+        //100
+        if(prd.getNaziv() != null && prd.getTip() == null && prd.getLokacija() == null){
+            restorani = poNazivu;
+        }
+
+        //110
+        if(prd.getNaziv() != null && prd.getTip() != null && prd.getLokacija() == null){
+            poNazivu.retainAll(poTipu);
+            restorani = poNazivu;
+        }
+
+        //010
+        if(prd.getNaziv() == null && prd.getTip() != null && prd.getLokacija() == null){
+            restorani = poTipu;
+            System.out.println("OVDEEEEEEEEEEEEEE");
+        }
+
+        //101
+        if(prd.getNaziv() != null && prd.getTip() == null && prd.getLokacija() != null){
+            poNazivu.retainAll(poAdresi);
+            restorani = poNazivu;
+        }
+
+        List<Restoran> restoraniLista = new ArrayList<>();
+        for(Restoran r : restorani){
+            restoraniLista.add(r);
+        }
+
+        //000
+        return restoraniLista;
     }
 }

@@ -88,13 +88,25 @@ public class DatabaseConfiguration {
 
         lokacijaRepository.save(priboj);
 
-        Restoran r = new Restoran();
-        Restoran fap = new Restoran("F.A.P.", "kamionski", priboj);
-        Restoran aa = new Restoran("Vrlo", "Dobro", priboj);
+        Lokacija sase = new Lokacija(44.0, 45.0, "Sase");
+        lokacijaRepository.save(sase);
+
+
+        Lokacija indjija = new Lokacija(44.0, 45.0, "Indjija");
+        lokacijaRepository.save(indjija);
+
+        Restoran fap = new Restoran("F.A.P.", "Kamionski", priboj);
+        Restoran aa = new Restoran("Vrlo", "Kafana", priboj);
+        Restoran jara = new Restoran("Kod Jare", "Kafana", sase);
+        Restoran velja = new Restoran("Kod Velje", "Pekara", sase);
+        Restoran dobra = new Restoran("Skroz Dobra", "Pekara", indjija);
+        Restoran stanko = new Restoran("Stanisic", "Pekara", sase);
+
+
         fap.setArtikli(Set.of(menjac,volan));
         aa.setArtikli(Set.of(felna));
         artikalRepository.saveAll(List.of(volan, felna, menjac));
-        restoranRepository.saveAll(List.of(fap, r,aa));
+        restoranRepository.saveAll(List.of(fap, aa, jara, velja, dobra, stanko));
 
         dzemo.setRestoran(fap);
         jovo.setRestoran(aa);
