@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d469d6a6-6a16-4438-a8be-7a87d2a6bc05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/service/LokacijaService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/controller/AdminRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/controller/AdminRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/controller/KorisnikRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/controller/KorisnikRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/service/KorisnikService.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/service/KorisnikService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/service/SessionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/service/SessionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/veb/target/classes/com/example/veb/controller/AdminRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/veb/target/classes/com/example/veb/controller/AdminRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/target/classes/com/example/veb/model/Porudzbina.class" beforeDir="false" afterPath="$PROJECT_DIR$/veb/target/classes/com/example/veb/model/Porudzbina.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veb/target/classes/com/example/veb/controller/KorisnikRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/veb/target/classes/com/example/veb/controller/KorisnikRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veb/target/classes/com/example/veb/service/KorisnikService.class" beforeDir="false" afterPath="$PROJECT_DIR$/veb/target/classes/com/example/veb/service/KorisnikService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veb/target/classes/com/example/veb/service/SessionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/veb/target/classes/com/example/veb/service/SessionService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +100,7 @@
       <workItem from="1655587437669" duration="4241000" />
       <workItem from="1655739331390" duration="32156000" />
       <workItem from="1656325118807" duration="7775000" />
+      <workItem from="1656678550459" duration="9502000" />
     </task>
     <servers />
   </component>
