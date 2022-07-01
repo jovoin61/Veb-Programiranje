@@ -63,9 +63,11 @@ public class DatabaseConfiguration {
 
 
         kalendar.set(1999, Calendar.MARCH,24);
-        Menadzer dzemo = new Menadzer("zastavnik-dzemo", "celicnakrila", "dzemo", "dzemic", Pol.MUSKI, kalendar.getTime());
-
+        Menadzer dzemo = new Menadzer("dzemo", "dzemo", "dzemo", "dzemic", Pol.MUSKI, kalendar.getTime());
         menadzerRepository.save(dzemo);
+
+        Menadzer jovo = new Menadzer("jovo", "car", "dzemo", "dzemic", Pol.MUSKI, kalendar.getTime());
+        menadzerRepository.save(jovo);
 
         Korisnik korisnik1 = new Korisnik("korisnik1", "korisnik123", "Korisnik1", "jedan", Pol.MUSKI, kalendar.getTime() );
         korisnikRepository.save(korisnik1);
@@ -86,67 +88,56 @@ public class DatabaseConfiguration {
 
         lokacijaRepository.save(priboj);
 
-        artikli.add(menjac);
-        artikli.add(volan);
-        artikli.add(felna);
-
-
         Restoran r = new Restoran();
         Restoran fap = new Restoran("F.A.P.", "kamionski", priboj);
-
-        fap.setArtikli(Set.of(menjac,volan,felna));
+        Restoran aa = new Restoran("Vrlo", "Dobro", priboj);
+        fap.setArtikli(Set.of(menjac,volan));
+        aa.setArtikli(Set.of(felna));
         artikalRepository.saveAll(List.of(volan, felna, menjac));
-        restoranRepository.saveAll(List.of(fap, r));
+        restoranRepository.saveAll(List.of(fap, r,aa));
 
         dzemo.setRestoran(fap);
+        jovo.setRestoran(aa);
         fap.setArtikli(artikli);
+        aa.setArtikli(artikli);
 
-        korisnikRepository.save(dzemo);
-
+        menadzerRepository.save(dzemo);
+        menadzerRepository.save(jovo);
         Kpgs s1 = new Kpgs(menjac, 3);
         Kpgs s2 = new Kpgs(menjac, 1);
         Kpgs s3 = new Kpgs(volan, 2);
         Kpgs s4 = new Kpgs(felna, 3);
         Kpgs s5 = new Kpgs(felna, 2);
-
-
-
-        Set<Kpgs> stavke1 = new HashSet<>();
-        Set<Kpgs> stavke2 = new HashSet<>();
-
-        stavke1.add(s1);
-        stavke1.add(s3);
-        stavke1.add(s4);
-
-        stavke2.add(s2);
-        stavke2.add(s5);
-       // kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
+        kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
 
         Dostavljac brko = new Dostavljac("brko123", "brko123", "Brko", "Brkic", Pol.MUSKI, kalendar.getTime());
-        //dostavljacRepository.save(brko);
+
         Dostavljac micko = new Dostavljac("mica", "mica", "Micko", "Mickovic", Pol.MUSKI, kalendar.getTime());
         dostavljacRepository.save(micko);
 
         kalendar.set(2021, Calendar.MAY,26);
-        Porudzbina p1 = new Porudzbina(stavke1, fap , kalendar.getTime() , testKupac , Status.CEKA_DOSTAVLJACA);
-        //porudzbinaRepository.saveAndFlush(p1);
-        Porudzbina p2 = new Porudzbina(stavke2, fap , kalendar.getTime() , testKupac , Status.U_TRANSPORTU);
-        //p2.setDostavljac(micko);
-        //porudzbinaRepository.save(p2);
-        s1.setPorudzbina(p1);
-        s2.setPorudzbina(p2);
-        s3.setPorudzbina(p1);
-        s4.setPorudzbina(p1);
-        s5.setPorudzbina(p2);
+        Porudzbina p1 = new Porudzbina( fap , kalendar.getTime() , testKupac , Status.CEKA_DOSTAVLJACA);
+        Porudzbina p2 = new Porudzbina( aa , kalendar.getTime() , testKupac , Status.U_TRANSPORTU);
+        p1.setStavke(Set.of(s1,s3,s4));
+        p2.setStavke(Set.of(s2,s5));
+        kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
         porudzbinaRepository.saveAll(List.of(p1,p2));
-        Porudzbina p3 = new Porudzbina(stavke2, fap , kalendar.getTime() , testKupac , Status.U_PRIPREMI);
+
+
+
 //        porudzbinaRepository.save(p3);
         //kalendar.set(1953, Calendar.JANUARY,19);
         //micko.setPorudzbine(Set.of(p2));
         brko.setPorudzbine(Set.of(p2));
         dostavljacRepository.save(brko);
 
-        kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
+
+        System.out.println(p1.getStavke());
+        System.out.println(p2.getStavke());
+        System.out.println(testKupac.getPorudzbine());
+        testKupac.setPorudzbine(Set.of(p1,p2));
+        System.out.println(testKupac.getPorudzbine());
+        kupacRepository.save(testKupac);
        // dostavljacRepository.save(brko);
 
         /*Set<Porudzbina> asdf = new HashSet<>();

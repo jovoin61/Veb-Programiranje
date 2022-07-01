@@ -1,6 +1,7 @@
 package com.example.veb.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
@@ -18,7 +19,7 @@ public class Porudzbina implements Serializable {
     @GeneratedValue
     private UUID uuid;
 
-    @OneToMany(cascade = CascadeType.ALL)//(fetch = FetchType.EAGER, mappedBy = "porudzbina")
+    @OneToMany//(cascade = CascadeType.ALL)//(fetch = FetchType.EAGER, mappedBy = "porudzbina")
     private Set<Kpgs> stavke = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -32,8 +33,8 @@ public class Porudzbina implements Serializable {
     @Column
     private Double cena = 0.00;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "kupac_id")
+    @ManyToOne
+    @JsonIgnore
     private Kupac kupac;
 
     @Enumerated(EnumType.STRING)
@@ -47,16 +48,15 @@ public class Porudzbina implements Serializable {
     public Porudzbina() {
     }
 
-    public Porudzbina(@NotNull Set<Kpgs> stavke, Restoran restoran, Date vremePorudzbine, Kupac kupac, Status status) {
-        this.stavke = stavke;
+    public Porudzbina(Restoran restoran,  Date vremePorudzbine, Kupac kupac ,Status status) {
         this.restoran = restoran;
         this.vremePorudzbine = vremePorudzbine;
         this.kupac = kupac;
         this.status = status;
-        for (Kpgs k : stavke){
-          this.cena  += k.getUkupnaCena();
-        }
     }
+
+
+
     /*public Porudzbina(@NotNull Set<Kpgs> stavke, Restoran restoran, Date vremePorudzbine, Kupac kupac, Status status,Dostavljac dostavljac) {
         this.stavke = stavke;
         this.restoran = restoran;
@@ -142,5 +142,6 @@ public class Porudzbina implements Serializable {
     public void setDostavljac(Dostavljac dostavljac) {
         this.dostavljac = dostavljac;
     }*/
+
 
 }

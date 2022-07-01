@@ -1,10 +1,8 @@
 package com.example.veb.controller;
 
 import com.example.veb.dto.PorudzbinaDto;
-import com.example.veb.model.Dostavljac;
-import com.example.veb.model.Korisnik;
-import com.example.veb.model.Kupac;
-import com.example.veb.model.Uloga;
+import com.example.veb.model.*;
+import com.example.veb.service.MenadzerService;
 import com.example.veb.service.PorudzbinaService;
 import com.example.veb.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,19 +19,17 @@ import java.util.Set;
 public class PorudzbinaRestController {
 
     @Autowired
-    SessionService sessionService;
+    private SessionService sessionService;
     @Autowired
-    PorudzbinaService porudzbinaService;
+    private PorudzbinaService porudzbinaService;
+
+
 
     @GetMapping("/porudzbine/kupac")
     public ResponseEntity<List<PorudzbinaDto>> ispisi_porudzbine_kupac(HttpSession session){
         if (sessionService.da_li_je_korisnik(Uloga.KUPAC, session)){
 
             Korisnik korisnik = (Korisnik) session.getAttribute("korisnik");
-            /*if(korisnik == null){
-                System.out.println("Nema sesije!");
-                return new ResponseEntity<>("Nema sesije!",HttpStatus.OK);
-            }*/
             return new ResponseEntity<List<PorudzbinaDto>>(porudzbinaService.prikaz_svih_porudzbina_korisnik(korisnik), HttpStatus.OK);
         }
         return new ResponseEntity("Niste Kupac", HttpStatus.FORBIDDEN);
@@ -42,14 +38,21 @@ public class PorudzbinaRestController {
     @GetMapping("/porudzbine/dostavljac")
     public ResponseEntity<List<PorudzbinaDto>> ispisi_porudzbine_dostavljac(HttpSession session){
 
-        //if(logovaniKorisnik == null || logovaniKorisnik.getUloga() != Uloga.DOSTAVLJAC)
         if( sessionService.da_li_je_korisnik(Uloga.DOSTAVLJAC, session)){
             Dostavljac dostavljac = (Dostavljac)session.getAttribute("korisnik");
             return new ResponseEntity<List<PorudzbinaDto>>(porudzbinaService.prikaz_svih_porudzbina_dostavljac(dostavljac),HttpStatus.OK);
 
         }
-        //List<PorudzbinaDto> porudzbinas = porudzbinaService.PorudzbineDostavljaca(logovaniKorisnik);
-        //return ResponseEntity.ok(porudzbinas);
         return new ResponseEntity("Niste Dostavljac", HttpStatus.FORBIDDEN);
+    }
+    @GetMapping("/menadzer/restoran/porudzbine")
+    public ResponseEntity<List<PorudzbinaDto>> ispisi_porudzbine_menadzer(HttpSession session){
+
+        if( sessionService.da_li_je_korisnik(Uloga.MENADZER, session)){
+            Menadzer menadzer = (Menadzer) session.getAttribute("korisnik");
+            return new ResponseEntity<List<PorudzbinaDto>>(porudzbinaService.prikaz_svih_porudzbina_menadzer(menadzer),HttpStatus.OK);
+
+        }
+        return new ResponseEntity("Niste Menadzer", HttpStatus.FORBIDDEN);
     }
 }

@@ -22,6 +22,7 @@ public class Restoran implements Serializable {
     @OneToMany//(fetch = FetchType.EAGER, mappedBy = "restoran")
     private Set<Artikal> artikli = new HashSet<>();
 
+
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "lokacija_id")
     private Lokacija lokacija;

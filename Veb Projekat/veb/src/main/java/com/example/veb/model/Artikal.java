@@ -92,4 +92,5 @@ public class Artikal implements Serializable{
         this.opis = opis;
     }
 
+
 }
