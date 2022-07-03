@@ -52,15 +52,15 @@ public class DatabaseConfiguration {
         Calendar kalendar = new GregorianCalendar();
 
         kalendar.set(1963, Calendar.JUNE,14);
-        Korisnik ranbo = new Korisnik("baustelac_ranbo", "fap", "antonije", "pusic", Pol.MUSKI, kalendar.getTime());
+        Korisnik ranbo = new Korisnik("ranbo", "fap", "antonije", "pusic", Pol.MUSKI, kalendar.getTime());
         ranbo.setUloga(Uloga.ADMIN);
 
         Kupac testKupac = new Kupac("kupac", "kupac", "Test", "Kupac", Pol.ZENSKI, kalendar.getTime());
 
         korisnikRepository.save(ranbo);
         kupacRepository.save(testKupac);
-
-
+        Kupac testKupac1 = new Kupac("asd", "asd", "Test", "Kupac", Pol.ZENSKI, kalendar.getTime());
+        kupacRepository.save(testKupac1);
 
         kalendar.set(1999, Calendar.MARCH,24);
         Menadzer dzemo = new Menadzer("dzemo", "dzemo", "dzemo", "dzemic", Pol.MUSKI, kalendar.getTime());
@@ -101,26 +101,19 @@ public class DatabaseConfiguration {
         Restoran velja = new Restoran("Kod Velje", "Pekara", sase);
         Restoran dobra = new Restoran("Skroz Dobra", "Pekara", indjija);
         Restoran stanko = new Restoran("Stanisic", "Pekara", sase);
+        fap.setStatusRestorana(StatusRestorana.RADI);
+        aa.setStatusRestorana(StatusRestorana.NE_RADI);
 
 
         fap.setArtikli(Set.of(menjac,volan));
         aa.setArtikli(Set.of(felna));
-        artikalRepository.saveAll(List.of(volan, felna, menjac));
-        restoranRepository.saveAll(List.of(fap, aa, jara, velja, dobra, stanko));
-
-        dzemo.setRestoran(fap);
-        jovo.setRestoran(aa);
-        fap.setArtikli(artikli);
-        aa.setArtikli(artikli);
-
-        menadzerRepository.save(dzemo);
-        menadzerRepository.save(jovo);
+        //asdf
         Kpgs s1 = new Kpgs(menjac, 3);
         Kpgs s2 = new Kpgs(menjac, 1);
         Kpgs s3 = new Kpgs(volan, 2);
         Kpgs s4 = new Kpgs(felna, 3);
         Kpgs s5 = new Kpgs(felna, 2);
-        //kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
+
 
         Dostavljac brko = new Dostavljac("brko123", "brko123", "Brko", "Brkic", Pol.MUSKI, kalendar.getTime());
 
@@ -135,7 +128,6 @@ public class DatabaseConfiguration {
        // porudzbinaRepository.saveAll(List.of(p1,p2));
        // kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
        // porudzbinaRepository.saveAll(List.of(p1,p2));
-        System.out.println("kurtoncina");
         System.out.println(s1.getPorudzbina());
         System.out.println(p1.getStavke());
         s1.setPorudzbina(p1);
@@ -143,8 +135,33 @@ public class DatabaseConfiguration {
         s3.setPorudzbina(p1);
         s4.setPorudzbina(p1);
         s5.setPorudzbina(p2);
-        porudzbinaRepository.saveAll(List.of(p1,p2));
-        kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
+        s1.setKupac(testKupac);
+        s2.setKupac(testKupac);
+        s3.setKupac(testKupac);
+        s4.setKupac(testKupac);
+        s5.setKupac(testKupac);
+        s1.setRestoran(s1.getArtikal().getRestoran());
+        s2.setRestoran(s2.getArtikal().getRestoran());
+        s3.setRestoran(s3.getArtikal().getRestoran());
+        s4.setRestoran(s4.getArtikal().getRestoran());
+        s5.setRestoran(s5.getArtikal().getRestoran());
+
+        fap.setPorudzbina(List.of(p1));
+        aa.setPorudzbina(List.of(p2));
+        //restoranRepository.save(fap);
+        //restoranRepository.save(aa);
+        artikalRepository.saveAll(List.of(volan, felna, menjac));
+        restoranRepository.saveAll(List.of(fap, aa, jara, velja, dobra, stanko));
+
+        dzemo.setRestoran(fap);
+        jovo.setRestoran(aa);
+
+
+        menadzerRepository.save(dzemo);
+        menadzerRepository.save(jovo);
+       // porudzbinaRepository.saveAll(List.of(p1,p2));
+       // kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
+
 
         //kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
         //porudzbinaRepository.saveAll(List.of(p1,p2));

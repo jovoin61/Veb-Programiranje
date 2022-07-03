@@ -16,11 +16,11 @@ import java.util.UUID;
 @Entity
 public class Porudzbina implements Serializable {
 
+
+
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(nullable = false)
-    private UUID uuid;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long uuid;
 
     @OneToMany(cascade = CascadeType.ALL)//(fetch = FetchType.EAGER, mappedBy = "porudzbina")
     private Set<Kpgs> stavke = new HashSet<>();
@@ -58,7 +58,10 @@ public class Porudzbina implements Serializable {
         this.status = status;
     }
 
-
+    public Porudzbina(Restoran restoran, Kupac kupac) {
+        this.restoran = restoran;
+        this.kupac = kupac;
+    }
 
     /*public Porudzbina(@NotNull Set<Kpgs> stavke, Restoran restoran, Date vremePorudzbine, Kupac kupac, Status status,Dostavljac dostavljac) {
         this.stavke = stavke;
@@ -72,13 +75,6 @@ public class Porudzbina implements Serializable {
         this.dostavljac=dostavljac;
     }*/
 
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
 
     public Set<Kpgs> getStavke() {
         return stavke;
@@ -128,14 +124,11 @@ public class Porudzbina implements Serializable {
         this.status = status;
     }
 
-
-    /*public Dostavljac getDostavljac() {
-        return dostavljac;
+    public Long getUuid() {
+        return uuid;
     }
 
-    public void setDostavljac(Dostavljac dostavljac) {
-        this.dostavljac = dostavljac;
-    }*/
-
-
+    public void setUuid(Long uuid) {
+        this.uuid = uuid;
+    }
 }

@@ -6,10 +6,7 @@ import com.example.veb.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class PorudzbinaService {
@@ -24,27 +21,18 @@ public class PorudzbinaService {
     private MenadzerRepository menadzerRepository;
     @Autowired
     private KpgsRepository kpgsRepository;
+    @Autowired
+    private RestoranRepository restoranRepository;
 
     public List<PorudzbinaDto> prikaz_svih_porudzbina_korisnik(Korisnik korisnik){
 
         Kupac kupac = kupacRepository.findByKorisnickoIme(korisnik.getKorisnickoIme());
         Set<Porudzbina> porudzbine = porudzbinaRepository.getByKupac(kupac);
         List<PorudzbinaDto> porudzbinaDtoList = new ArrayList<>();
-        List<Kpgs> kpgsSet = kpgsRepository.findAll();
 
-        System.out.println("kurcina");
-        System.out.println(kpgsSet);
         for(Porudzbina p : porudzbine){
-            Set<Kpgs> kpgsSet1 = new HashSet<>();
-            for(Kpgs k : kpgsSet){
-                if(k.getPorudzbina().getUuid().compareTo(p.getUuid()) != 0) {
-                    System.out.println(kpgsSet1);
-                    kpgsSet1.add(k);
-                }
-            }
 
-            PorudzbinaDto temp = new PorudzbinaDto(p);
-            temp.setStavke(kpgsSet1);
+            PorudzbinaDto temp = new PorudzbinaDto(p);;
             porudzbinaDtoList.add(temp);
 
         }
@@ -57,29 +45,16 @@ public class PorudzbinaService {
 
 
         for(Porudzbina p : porudzbinaRepository.findAll()){
-            Set<Kpgs> kpgsSet1 = new HashSet<>();
-            for(Kpgs k : kpgsRepository.findAll()){
-                if(k.getPorudzbina().getUuid().compareTo(p.getUuid()) != 0) {
-                    kpgsSet1.add(k);
-                }
-            }
             if(p.getStatus() == Status.CEKA_DOSTAVLJACA){
                 PorudzbinaDto temp = new PorudzbinaDto(p);
-                temp.setStavke(kpgsSet1);
                 porudzbinaDtos.add(temp);
             }
         }
         Dostavljac dostavljac = dostavljacRepository.findByKorisnickoIme(korisnik.getKorisnickoIme());
 
         for (Porudzbina p : dostavljac.getPorudzbine()){
-            Set<Kpgs> kpgsSet2 = new HashSet<>();
-            for(Kpgs k : kpgsRepository.findAll()){
-                if(k.getPorudzbina().getUuid().compareTo(p.getUuid()) != 0) {
-                    kpgsSet2.add(k);
-                }
-            }
+
             PorudzbinaDto temp = new PorudzbinaDto(p);
-            temp.setStavke(kpgsSet2);
             porudzbinaDtos.add(temp);
         }
 
@@ -90,20 +65,26 @@ public class PorudzbinaService {
         Menadzer menadzer = menadzerRepository.findByKorisnickoIme(korisnik.getKorisnickoIme());
         List<PorudzbinaDto> porudzbinaDtos = new ArrayList<>();
         for(Porudzbina p : porudzbinaRepository.findAll()){
-
-
             if(p.getRestoran() == menadzer.getRestoran()){
-                Set<Kpgs> kpgsSet3 = new HashSet<>();
-                for(Kpgs k : kpgsRepository.findAll()){
-                    if(k.getPorudzbina().getUuid().compareTo(p.getUuid()) != 0) {
-                        kpgsSet3.add(k);
-                    }
-                }
                 PorudzbinaDto temp = new PorudzbinaDto(p);
-                temp.setStavke(kpgsSet3);
                 porudzbinaDtos.add(temp);
             }
         }
         return porudzbinaDtos;
     }
+
+
+    public Double UkupnaCenaStavki(List<Kpgs> stavke) {
+        Double cena = 0.0;
+        for(Kpgs pa : stavke)
+            cena += pa.getArtikal().getCena()*pa.getBrojArtikala();
+        return cena;
+    }
+
+
+
+
+
+
+
 }

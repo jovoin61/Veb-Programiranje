@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-//test
+
 @Entity
 public class Artikal implements Serializable{
 
@@ -28,10 +28,9 @@ public class Artikal implements Serializable{
     @Column
     private String opis;
 
-    /*@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "restoran_id")
+    @ManyToOne
     @JsonIgnore
-    private Restoran restoran;*/
+    private Restoran restoran;
 
     public Artikal() {
     }
@@ -92,5 +91,11 @@ public class Artikal implements Serializable{
         this.opis = opis;
     }
 
+    public Restoran getRestoran() {
+        return restoran;
+    }
 
+    public void setRestoran(Restoran restoran) {
+        this.restoran = restoran;
+    }
 }

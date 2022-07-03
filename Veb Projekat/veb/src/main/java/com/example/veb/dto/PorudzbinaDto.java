@@ -9,7 +9,7 @@ import java.util.*;
 
 public class PorudzbinaDto{
 
-        private UUID uuid;
+        private Long uuid;
         private Set<Kpgs> stavke = new HashSet<>();
         private RestoranDto restoran;
         private Date vremePorudzbine;
@@ -31,12 +31,12 @@ public class PorudzbinaDto{
                 this.status = p.getStatus();
         }
 
-        public UUID getUuid() {
-                return uuid;
+        public Long getUuid() {
+            return uuid;
         }
 
-        public void setUuid(UUID uuid) {
-                this.uuid = uuid;
+        public void setUuid(Long uuid) {
+            this.uuid = uuid;
         }
 
         public Set<Kpgs> getStavke() {
@@ -70,14 +70,6 @@ public class PorudzbinaDto{
         public void setCena(Double cena) {
                 this.cena = cena;
         }
-
-        /*public KorisnikDto getKupac() {
-                return kupac;
-        }
-
-        public void setKupac(KorisnikDto kupac) {
-                this.kupac = kupac;
-        }*/
 
         public Status getStatus() {
                 return status;

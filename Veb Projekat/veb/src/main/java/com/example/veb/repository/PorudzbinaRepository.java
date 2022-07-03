@@ -9,10 +9,11 @@ import java.util.Set;
 import java.util.UUID;
 
 @Repository
-public interface PorudzbinaRepository extends JpaRepository<Porudzbina, UUID> {
-    public Porudzbina getByUuid(UUID uuid);
+public interface PorudzbinaRepository extends JpaRepository<Porudzbina, Long> {
+    public Porudzbina getByUuid(Long uuid);
     public Set<Porudzbina> getByRestoran(Restoran restoran);
     public Set<Porudzbina> getByKupac(Kupac kupac);
+
 
     // public List<Porudzbina> findAllByDostavljac(Dostavljac dostavljac);
 }

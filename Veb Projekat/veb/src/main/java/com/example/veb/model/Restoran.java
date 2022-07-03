@@ -1,6 +1,7 @@
 package com.example.veb.model;
 
 import com.example.veb.dto.RestoranDto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -27,6 +28,13 @@ public class Restoran implements Serializable {
     @JoinColumn(name = "lokacija_id")
     private Lokacija lokacija;
 
+    @Column
+    private StatusRestorana statusRestorana;
+
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Porudzbina> porudzbina;
 
     public Restoran() {
     }
@@ -83,4 +91,19 @@ public class Restoran implements Serializable {
         this.lokacija = lokacija;
     }
 
+    public StatusRestorana getStatusRestorana() {
+        return statusRestorana;
+    }
+
+    public void setStatusRestorana(StatusRestorana statusRestorana) {
+        this.statusRestorana = statusRestorana;
+    }
+
+    public List<Porudzbina> getPorudzbina() {
+        return porudzbina;
+    }
+
+    public void setPorudzbina(List<Porudzbina> porudzbina) {
+        this.porudzbina = porudzbina;
+    }
 }
