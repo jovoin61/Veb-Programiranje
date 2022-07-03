@@ -8,10 +8,7 @@ import com.example.veb.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -25,6 +22,7 @@ public class KorisnikRestController {
     SessionService sessionService;
 
     @GetMapping("/prikaz-profila")
+    @CrossOrigin("http://localhost:8080/prikaz-profila")
     public ResponseEntity<Korisnik> prikaz_profila(HttpSession session){
         if(!sessionService.proveri(session)){
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);

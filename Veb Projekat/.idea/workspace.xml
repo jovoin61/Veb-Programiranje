@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d469d6a6-6a16-4438-a8be-7a87d2a6bc05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/dto/PretragaRestoranDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/configuration/DatabaseConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/configuration/DatabaseConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/controller/KorisnikRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/controller/KorisnikRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/controller/RegistracijaRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/controller/RegistracijaRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/controller/RestoranRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/controller/RestoranRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/service/RestoranSerevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/veb/src/main/java/com/example/veb/service/RestoranSerevice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veb/target/classes/com/example/veb/controller/KorisnikRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/veb/target/classes/com/example/veb/controller/KorisnikRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veb/target/classes/com/example/veb/controller/RegistracijaRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/veb/target/classes/com/example/veb/controller/RegistracijaRestController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/veb/target/classes/com/example/veb/controller/RestoranRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/veb/target/classes/com/example/veb/controller/RestoranRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veb/target/classes/com/example/veb/service/RestoranSerevice.class" beforeDir="false" afterPath="$PROJECT_DIR$/veb/target/classes/com/example/veb/service/RestoranSerevice.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,6 +110,7 @@
       <workItem from="1656325118807" duration="7775000" />
       <workItem from="1656678550459" duration="9502000" />
       <workItem from="1656689327964" duration="18815000" />
+      <workItem from="1656760725705" duration="10858000" />
     </task>
     <servers />
   </component>

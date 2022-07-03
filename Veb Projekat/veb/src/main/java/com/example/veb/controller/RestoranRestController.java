@@ -32,6 +32,7 @@ public class RestoranRestController {
     KomentarRepository komentarRepository;
 
     @GetMapping("/")
+    @CrossOrigin("http://localhost:8080/")
     public List<RestoranDto> svi_restorani() {
         List<RestoranDto> restorani = restoranSerevice.svi_restorani();
 
@@ -39,6 +40,7 @@ public class RestoranRestController {
     }
 
     @GetMapping("restoran/{id}")
+    @CrossOrigin("http://localhost:8080/restoran/{id}")
     public ResponseEntity<?> prikaz_restorana(@PathVariable(name = "id") Long id){
         List<Restoran> restorani = restoranRepository.findAll();
 
