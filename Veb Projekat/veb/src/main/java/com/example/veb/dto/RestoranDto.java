@@ -1,9 +1,6 @@
 package com.example.veb.dto;
 
-import com.example.veb.model.Artikal;
-import com.example.veb.model.Lokacija;
-import com.example.veb.model.Restoran;
-import com.example.veb.model.StatusRestorana;
+import com.example.veb.model.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,6 +10,7 @@ public class RestoranDto {
     private String tip;
     private Lokacija lokacija;
     private StatusRestorana statusRestorana;
+    private Set<Komentar> komentari;
 
     public RestoranDto() {
     }
@@ -22,7 +20,16 @@ public class RestoranDto {
         this.tip = restoran.getTip();
         this.lokacija = restoran.getLokacija();
         this.statusRestorana = restoran.getStatusRestorana();
+        this.komentari = restoran.getKomentari();
 
+    }
+
+    public Set<Komentar> getKomentari() {
+        return komentari;
+    }
+
+    public void setKomentari(Set<Komentar> komentari) {
+        this.komentari = komentari;
     }
 
     public String getNaziv() {

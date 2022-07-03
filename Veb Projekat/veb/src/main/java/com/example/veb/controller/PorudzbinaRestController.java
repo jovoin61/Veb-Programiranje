@@ -1,9 +1,6 @@
 package com.example.veb.controller;
 
-import com.example.veb.dto.KorpaCenaIspis;
-import com.example.veb.dto.KorpaDto;
-import com.example.veb.dto.KorpaIspisDto;
-import com.example.veb.dto.PorudzbinaDto;
+import com.example.veb.dto.*;
 import com.example.veb.model.*;
 import com.example.veb.repository.KpgsRepository;
 import com.example.veb.repository.MenadzerRepository;
@@ -35,6 +32,10 @@ public class PorudzbinaRestController {
     private KpgsRepository kpgsRepository;
     @Autowired
     private MenadzerService menadzerService;
+    @Autowired
+    private DostavljacService dostavljacService;
+    @Autowired
+    private KupacService kupacService;
 
 
 
@@ -173,7 +174,7 @@ public class PorudzbinaRestController {
     }
 
     @PutMapping("/menadzer/porudzbina/{idP}")
-    public ResponseEntity<String> promeniStatusPorudzbine(@PathVariable(name = "idP") Long idPorudzbine, HttpSession session){
+    public ResponseEntity<String> promeniStatusPorudzbineMenadzer(@PathVariable(name = "idP") Long idPorudzbine, HttpSession session){
         if (sessionService.da_li_je_korisnik(Uloga.MENADZER, session)) {
 
             Korisnik korisnik = (Korisnik) session.getAttribute("korisnik");
@@ -186,7 +187,34 @@ public class PorudzbinaRestController {
         }
         return new ResponseEntity("Niste Menadzer", HttpStatus.FORBIDDEN);
     }
+    @PutMapping("/dostavljac/porudzbina/{idP}")
+    public ResponseEntity<String> promeniStatusPorudzbineDostavljac(@PathVariable(name = "idP") Long idPorudzbine, HttpSession session){
+        if (sessionService.da_li_je_korisnik(Uloga.DOSTAVLJAC, session)) {
 
+            Korisnik korisnik = (Korisnik) session.getAttribute("korisnik");
+
+            if(dostavljacService.promeniStatusPorudzbine(idPorudzbine,korisnik.getId()))
+                return ResponseEntity.ok("Promena Statusa");
+            return new ResponseEntity("Porudzbina nema odgovarajuci status", HttpStatus.BAD_REQUEST);
+
+
+        }
+        return new ResponseEntity("Niste Dostavljac", HttpStatus.FORBIDDEN);
+    }
+    @PostMapping("/kupac/komentar/porudzbina/{idP}")
+    public ResponseEntity<String> postaviKomentar(@PathVariable(name = "idP") Long idPorudzbine, @RequestBody KomentarNoviDto komentar, HttpSession session){
+        if (sessionService.da_li_je_korisnik(Uloga.KUPAC, session)) {
+
+            Korisnik korisnik = (Korisnik) session.getAttribute("korisnik");
+
+            if(kupacService.postaviKomentar(idPorudzbine,korisnik,komentar))
+                return ResponseEntity.ok("Postavljen Komentar");
+            return new ResponseEntity("Pogresan zahtav", HttpStatus.BAD_REQUEST);
+
+
+        }
+        return new ResponseEntity("Niste Kupac", HttpStatus.FORBIDDEN);
+    }
 
 }
 

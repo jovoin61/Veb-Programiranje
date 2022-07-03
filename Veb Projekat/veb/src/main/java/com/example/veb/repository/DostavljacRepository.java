@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DostavljacRepository extends JpaRepository<Dostavljac, Long> {
     public Dostavljac findByKorisnickoIme(String korisnicko_ime);
+    public Dostavljac getById(Long id);
 }

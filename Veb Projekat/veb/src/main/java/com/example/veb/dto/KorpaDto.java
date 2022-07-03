@@ -3,11 +3,11 @@ package com.example.veb.dto;
 public class KorpaDto {
 
     private String nazivArtikla;
-    private int kolicina;
+    private Integer kolicina;
 
     public KorpaDto(){}
 
-    public KorpaDto(String nazivArtikla, int kolicina){
+    public KorpaDto(String nazivArtikla, Integer kolicina){
         this.nazivArtikla = nazivArtikla;
         this.kolicina = kolicina;
     }
@@ -20,11 +20,11 @@ public class KorpaDto {
         this.nazivArtikla = nazivArtikla;
     }
 
-    public int getKolicina() {
+    public Integer getKolicina() {
         return kolicina;
     }
 
-    public void setKolicina(int kolicina) {
+    public void setKolicina(Integer kolicina) {
         this.kolicina = kolicina;
     }
 }

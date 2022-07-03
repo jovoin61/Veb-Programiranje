@@ -25,7 +25,7 @@ public class MenadzerService {
     }
 
     public boolean promeniStatusPorudzbine(Long id){
-        Porudzbina porudzbina = porudzbinaRepository.getById(id);
+        Porudzbina porudzbina = porudzbinaRepository.getByUuid(id);
 
         if(porudzbina.getStatus()== Status.OBRADA) {
             porudzbina.setStatus(Status.U_PRIPREMI);

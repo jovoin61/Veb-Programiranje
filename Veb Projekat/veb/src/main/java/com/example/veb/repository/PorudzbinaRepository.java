@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Repository
 public interface PorudzbinaRepository extends JpaRepository<Porudzbina, Long> {
-    public Porudzbina getByUuid(Long uuid);
+    public Porudzbina getByUuid(long id);
     public Set<Porudzbina> getByRestoran(Restoran restoran);
     public Set<Porudzbina> getByKupac(Kupac kupac);
 

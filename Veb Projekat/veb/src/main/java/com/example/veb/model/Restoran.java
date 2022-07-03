@@ -36,6 +36,10 @@ public class Restoran implements Serializable {
     @JsonIgnore
     private List<Porudzbina> porudzbina;
 
+    @OneToMany ( cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Set<Komentar> komentari = new HashSet<>();
+
     public Restoran() {
     }
 
@@ -105,5 +109,13 @@ public class Restoran implements Serializable {
 
     public void setPorudzbina(List<Porudzbina> porudzbina) {
         this.porudzbina = porudzbina;
+    }
+
+    public Set<Komentar> getKomentari() {
+        return komentari;
+    }
+
+    public void setKomentari(Set<Komentar> komentari) {
+        this.komentari = komentari;
     }
 }

@@ -14,7 +14,7 @@ public class Kupac extends Korisnik implements Serializable {
     private Set<Porudzbina> porudzbine = new HashSet<>();
 
     @Column
-    private Integer brojSakupljenihBodova;
+    private Double brojSakupljenihBodova = 0.0;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "kupac_id")
@@ -39,12 +39,12 @@ public class Kupac extends Korisnik implements Serializable {
         this.porudzbine = porudzbine;
     }
 
-    public Integer getBrojSakupljenihBodova() {
+    public Double getBrojSakupljenihBodova() {
         return brojSakupljenihBodova;
     }
 
-    public void setBrojSakupljenihBodova(Integer brojSakupljenihBodova) {
-        this.brojSakupljenihBodova = brojSakupljenihBodova;
+    public void setBrojSakupljenihBodova(Double brojSakupljenihBodova) {
+        this.brojSakupljenihBodova += brojSakupljenihBodova;
     }
 
     public TipKupca getTipKupca() {

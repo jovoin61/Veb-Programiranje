@@ -9,4 +9,5 @@ public interface KupacRepository extends JpaRepository<Kupac, Long> {
     public Kupac findByKorisnickoIme(String korisnicko_ime);
     public Kupac getById(Long id);
 
+
 }

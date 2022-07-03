@@ -14,10 +14,12 @@ public class Komentar implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "kupac_id")
+    @JsonIgnore
     private Kupac kupac;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "restoran_id")
+    @JsonIgnore
     private Restoran restoran;
 
     @Column

@@ -121,7 +121,7 @@ public class DatabaseConfiguration {
         dostavljacRepository.save(micko);
 
         kalendar.set(2021, Calendar.MAY,26);
-        Porudzbina p1 = new Porudzbina( fap , kalendar.getTime() , testKupac , Status.CEKA_DOSTAVLJACA);
+        Porudzbina p1 = new Porudzbina( fap , kalendar.getTime() , testKupac , Status.DOSTAVLJENA);
         Porudzbina p2 = new Porudzbina( aa , kalendar.getTime() , testKupac , Status.U_TRANSPORTU);
         p1.setStavke(Set.of(s1,s3,s4));
         p2.setStavke(Set.of(s2,s5));
