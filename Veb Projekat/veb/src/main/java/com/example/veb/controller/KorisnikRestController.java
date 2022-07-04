@@ -1,5 +1,6 @@
 package com.example.veb.controller;
 
+import com.example.veb.dto.KorisnikDto;
 import com.example.veb.dto.RegistracijaDto;
 import com.example.veb.model.Korisnik;
 import com.example.veb.repository.KorisnikRepository;
@@ -45,5 +46,17 @@ public class KorisnikRestController {
         korisnik = korisnikService.izmena_profila(registracijaDto, korisnik);
 
         return new ResponseEntity<>(korisnik, HttpStatus.OK);
+    }
+
+    @CrossOrigin
+    @GetMapping("/korisnik")
+    public ResponseEntity<KorisnikDto> boliMeDupe(HttpSession session){
+        if(!sessionService.proveri(session)){
+            return new ResponseEntity("Niste ulogovani",HttpStatus.FORBIDDEN);
+        }
+        Korisnik korisnik = (Korisnik) session.getAttribute("korisnik");
+        KorisnikDto korisnikDto = new KorisnikDto(korisnik);
+        return new ResponseEntity<>(korisnikDto,HttpStatus.OK);
+
     }
 }
