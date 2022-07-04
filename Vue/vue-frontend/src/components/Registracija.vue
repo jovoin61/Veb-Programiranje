@@ -69,6 +69,8 @@
                 });
 
                 console.log(response);
+
+                this.$router.push('/prijava')
             }
         }
     }

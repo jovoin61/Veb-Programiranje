@@ -2,17 +2,17 @@
     <div>
         <nav class="navbar navbar-expand navbar-light">
           <div class="container">
-            <a href="#" class="navbar-brand">Restorani</a>
+            <router-link to="/" class="navbar-brand">Restorani</router-link>
             <div class="collapse navbar-collapse">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                  <a href="#" class="nav-link">Prijava</a>
+                  <router-link to="/prijava" class="nav-link">Prijava</router-link>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">Registracija</a>
+                  <router-link to="/registracija" class="nav-link">Registracija</router-link>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">Korisnik</a>
+                  <router-link to="/admin" class="nav-link">Admin</router-link>
                 </li>
               </ul>
             </div>
@@ -22,7 +22,10 @@
 </template>
 
 <script>
-export default {
-    name: 'NavBar'
-}
+  //import axios from 'axios'
+
+  export default {
+      name: 'NavBar'
+  }
+
 </script>

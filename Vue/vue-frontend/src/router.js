@@ -4,6 +4,8 @@ import Prijava from './components/Prijava.vue';
 import Restoran from './components/Restoran.vue';
 import Registracija from './components/Registracija.vue';
 import KonkretanRestoran from './components/KonkretanRestoran.vue';
+import Admin from './components/Admin.vue';
+import AdminKorisnici from './components/AdminKorisnici.vue';
 
 const router = createRouter({
 
@@ -13,13 +15,21 @@ const router = createRouter({
         {path: '/', component: Restoran, 
             children:[
                 {
-                    path : '/restpran/:naziv',
+                    path : '/restoran/:id',
                     name : 'restoran-id',
                     component : KonkretanRestoran,
-                }
+                },
         ]},
         {path: '/prijava', component: Prijava},
         {path: '/registracija', component: Registracija},
+        {path: '/admin', component: Admin, 
+            children:[
+                {
+                    path : '/korisnici',
+                    name : 'admin-korisnici',
+                    component : AdminKorisnici,
+                },
+            ]},
     ]
 })
 
