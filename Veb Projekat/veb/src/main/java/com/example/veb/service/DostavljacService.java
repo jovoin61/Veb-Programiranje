@@ -18,9 +18,14 @@ public class DostavljacService {
     private PorudzbinaRepository porudzbinaRepository;
     @Autowired
     private KupacRepository kupacRepository;
+    @Autowired
+    private AdminService adminService;
 
 
     public String dodaj_dostavljaca(Korisnik korisnik){
+
+        if(!adminService.dvaKorisnickaImena(korisnik.getKorisnickoIme())) return "KORISNICKO IME VEC POSTOJI!";
+
         Dostavljac noviDostavljac = new Dostavljac(korisnik);
         dostavljacRepository.save(noviDostavljac);
 

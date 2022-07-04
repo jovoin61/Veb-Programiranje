@@ -10,6 +10,7 @@ import com.example.veb.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,14 +20,15 @@ import javax.servlet.http.HttpSession;
 public class MenadzerRestController {
 
     @Autowired
-    SessionService sessionService;
+    private SessionService sessionService;
 
     @Autowired
-    MenadzerService menadzerService;
+    private MenadzerService menadzerService;
 
     @Autowired
-    RestoranRepository restoranRepository;
+    private RestoranRepository restoranRepository;
 
+    @CrossOrigin
     @GetMapping("/menadzer/restoran")
     public ResponseEntity<?> prikaz_restorana_porudzbina(HttpSession session){
         if(!sessionService.proveri(session)){

@@ -38,7 +38,7 @@ public class PorudzbinaRestController {
     private KupacService kupacService;
 
 
-
+    @CrossOrigin
     @GetMapping("/porudzbine/kupac")
     public ResponseEntity<List<PorudzbinaDto>> ispisi_porudzbine_kupac(HttpSession session){
         if (sessionService.da_li_je_korisnik(Uloga.KUPAC, session)){
@@ -49,6 +49,7 @@ public class PorudzbinaRestController {
         return new ResponseEntity("Niste Kupac", HttpStatus.FORBIDDEN);
     }
 
+    @CrossOrigin
     @GetMapping("/porudzbine/dostavljac")
     public ResponseEntity<List<PorudzbinaDto>> ispisi_porudzbine_dostavljac(HttpSession session){
 
@@ -59,6 +60,8 @@ public class PorudzbinaRestController {
         }
         return new ResponseEntity("Niste Dostavljac", HttpStatus.FORBIDDEN);
     }
+
+    @CrossOrigin
     @GetMapping("/menadzer/restoran/porudzbine")
     public ResponseEntity<List<PorudzbinaDto>> ispisi_porudzbine_menadzer(HttpSession session){
 
@@ -70,6 +73,7 @@ public class PorudzbinaRestController {
         return new ResponseEntity("Niste Menadzer", HttpStatus.FORBIDDEN);
     }
 
+    @CrossOrigin
     @PostMapping("/korpa/dodaj/restoran/{id}")
     public ResponseEntity<String> dodajUKorpu(@PathVariable(name = "id") Long idRestorana, @RequestBody KorpaDto korpaDto, HttpSession session){
         if (sessionService.da_li_je_korisnik(Uloga.KUPAC, session)){
@@ -95,6 +99,7 @@ public class PorudzbinaRestController {
         return new ResponseEntity("Niste Kupac", HttpStatus.FORBIDDEN);
     }
 
+    @CrossOrigin
     @DeleteMapping("/korpa/izbaci/{idKpgs}/restoran/{idR}")
     public ResponseEntity<String> izbaciIzKorpe(@PathVariable(name = "idR") Long idRestorana, @PathVariable(name = "idKpgs") Long idKpgs, HttpSession session){
         if (sessionService.da_li_je_korisnik(Uloga.KUPAC, session)){
@@ -111,6 +116,8 @@ public class PorudzbinaRestController {
 
         return new ResponseEntity("Niste Kupac", HttpStatus.FORBIDDEN);
     }
+
+    @CrossOrigin
     @GetMapping("/korpa/pregled/restoran/{idR}")
     public ResponseEntity<KorpaCenaIspis> pregledKorpe(@PathVariable(name = "idR") Long idRestorana , HttpSession session){
         if (sessionService.da_li_je_korisnik(Uloga.KUPAC, session)) {
@@ -135,6 +142,7 @@ public class PorudzbinaRestController {
         return new ResponseEntity("Niste Kupac", HttpStatus.FORBIDDEN);
     }
 
+    @CrossOrigin
     @PutMapping("/korpa/smanji/{idKpgs}/restoran/{idR}")
     public ResponseEntity<String> smanjiKolicinu(@PathVariable(name = "idR") Long idRestoran, @PathVariable(name = "idKpgs") Long idKpgs, HttpSession session) {
 
@@ -158,6 +166,7 @@ public class PorudzbinaRestController {
         return new ResponseEntity("Niste Kupac", HttpStatus.FORBIDDEN);
     }
 
+    @CrossOrigin
     @PutMapping("/korpa/poruci/restoran/{idR}")
     public ResponseEntity<String> poruci(@PathVariable(name = "idR") Long idRestorana, HttpSession session){
 
@@ -173,6 +182,7 @@ public class PorudzbinaRestController {
         return new ResponseEntity("Niste Kupac", HttpStatus.FORBIDDEN);
     }
 
+    @CrossOrigin
     @PutMapping("/menadzer/porudzbina/{idP}")
     public ResponseEntity<String> promeniStatusPorudzbineMenadzer(@PathVariable(name = "idP") Long idPorudzbine, HttpSession session){
         if (sessionService.da_li_je_korisnik(Uloga.MENADZER, session)) {
@@ -187,6 +197,8 @@ public class PorudzbinaRestController {
         }
         return new ResponseEntity("Niste Menadzer", HttpStatus.FORBIDDEN);
     }
+
+    @CrossOrigin
     @PutMapping("/dostavljac/porudzbina/{idP}")
     public ResponseEntity<String> promeniStatusPorudzbineDostavljac(@PathVariable(name = "idP") Long idPorudzbine, HttpSession session){
         if (sessionService.da_li_je_korisnik(Uloga.DOSTAVLJAC, session)) {
@@ -201,6 +213,8 @@ public class PorudzbinaRestController {
         }
         return new ResponseEntity("Niste Dostavljac", HttpStatus.FORBIDDEN);
     }
+
+    @CrossOrigin
     @PostMapping("/kupac/komentar/porudzbina/{idP}")
     public ResponseEntity<String> postaviKomentar(@PathVariable(name = "idP") Long idPorudzbine, @RequestBody KomentarNoviDto komentar, HttpSession session){
         if (sessionService.da_li_je_korisnik(Uloga.KUPAC, session)) {
@@ -217,4 +231,3 @@ public class PorudzbinaRestController {
     }
 
 }
-

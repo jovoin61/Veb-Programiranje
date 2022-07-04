@@ -16,8 +16,12 @@ public class MenadzerService {
     private MenadzerRepository menadzerRepository;
     @Autowired
     private PorudzbinaRepository porudzbinaRepository;
+    @Autowired
+    private AdminService adminService;
 
     public String dodaj_menadzera(Korisnik korisnik){
+        if(!adminService.dvaKorisnickaImena(korisnik.getKorisnickoIme())) return "KORISNICKO IME VEC POSTOJI!";
+
         Menadzer noviMenadzer = new Menadzer(korisnik);
         menadzerRepository.save(noviMenadzer);
 

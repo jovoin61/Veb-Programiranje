@@ -14,7 +14,6 @@ public class PorudzbinaDto{
         private RestoranDto restoran;
         private Date vremePorudzbine;
         private Double cena;
-       //private KorisnikDto kupac; //KupacDto
         private Status status;
 
         public PorudzbinaDto() {
@@ -23,23 +22,21 @@ public class PorudzbinaDto{
         public PorudzbinaDto(Porudzbina p) {
                 this.uuid = p.getUuid();
                 this.stavke = p.getStavke();
-               // setStavke(p.getStavke());
                 this.restoran = new RestoranDto(p.getRestoran());
                 this.vremePorudzbine = p.getVremePorudzbine();
                 this.cena = p.getCena();
-                //this.kupac = new KorisnikDto(p.getKupac());
                 this.status = p.getStatus();
         }
 
-        public Long getUuid() {
-            return uuid;
-        }
+    public Long getUuid() {
+        return uuid;
+    }
 
-        public void setUuid(Long uuid) {
-            this.uuid = uuid;
-        }
+    public void setUuid(Long uuid) {
+        this.uuid = uuid;
+    }
 
-        public Set<Kpgs> getStavke() {
+    public Set<Kpgs> getStavke() {
                 return stavke;
         }
 

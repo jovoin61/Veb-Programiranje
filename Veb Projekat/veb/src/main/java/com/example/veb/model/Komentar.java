@@ -17,7 +17,7 @@ public class Komentar implements Serializable {
     @JsonIgnore
     private Kupac kupac;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "restoran_id")
     @JsonIgnore
     private Restoran restoran;

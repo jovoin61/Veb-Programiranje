@@ -14,8 +14,8 @@ public class Kpgs implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "artikal_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "artikal_id")
     private Artikal artikal;
 
     @Column

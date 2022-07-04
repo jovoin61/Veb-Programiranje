@@ -83,6 +83,7 @@ public class DatabaseConfiguration {
 
 
 
+
         Lokacija priboj = new Lokacija(45.00, 45.00, "priboj");
         Set<Artikal> artikli = new HashSet<>();
 
@@ -103,7 +104,7 @@ public class DatabaseConfiguration {
         Restoran stanko = new Restoran("Stanisic", "Pekara", sase);
         fap.setStatusRestorana(StatusRestorana.RADI);
         aa.setStatusRestorana(StatusRestorana.NE_RADI);
-
+        restoranRepository.saveAll(List.of(fap, aa, jara, velja, dobra, stanko));
 
         fap.setArtikli(Set.of(menjac,volan));
         aa.setArtikli(Set.of(felna));
@@ -113,7 +114,7 @@ public class DatabaseConfiguration {
         Kpgs s3 = new Kpgs(volan, 2);
         Kpgs s4 = new Kpgs(felna, 3);
         Kpgs s5 = new Kpgs(felna, 2);
-
+        kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
 
         Dostavljac brko = new Dostavljac("brko123", "brko123", "Brko", "Brkic", Pol.MUSKI, kalendar.getTime());
 
@@ -123,13 +124,12 @@ public class DatabaseConfiguration {
         kalendar.set(2021, Calendar.MAY,26);
         Porudzbina p1 = new Porudzbina( fap , kalendar.getTime() , testKupac , Status.DOSTAVLJENA);
         Porudzbina p2 = new Porudzbina( aa , kalendar.getTime() , testKupac , Status.U_TRANSPORTU);
+        porudzbinaRepository.saveAll(List.of(p1,p2));
         p1.setStavke(Set.of(s1,s3,s4));
         p2.setStavke(Set.of(s2,s5));
+
+
        // porudzbinaRepository.saveAll(List.of(p1,p2));
-       // kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
-       // porudzbinaRepository.saveAll(List.of(p1,p2));
-        System.out.println(s1.getPorudzbina());
-        System.out.println(p1.getStavke());
         s1.setPorudzbina(p1);
         s2.setPorudzbina(p2);
         s3.setPorudzbina(p1);
@@ -145,22 +145,25 @@ public class DatabaseConfiguration {
         s3.setRestoran(s3.getArtikal().getRestoran());
         s4.setRestoran(s4.getArtikal().getRestoran());
         s5.setRestoran(s5.getArtikal().getRestoran());
-
+        kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
         fap.setPorudzbina(List.of(p1));
         aa.setPorudzbina(List.of(p2));
         //restoranRepository.save(fap);
         //restoranRepository.save(aa);
-        artikalRepository.saveAll(List.of(volan, felna, menjac));
+        //artikalRepository.saveAll(List.of(volan, felna, menjac));
+       // porudzbinaRepository.saveAll(List.of(p1,p2));
+        kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
         restoranRepository.saveAll(List.of(fap, aa, jara, velja, dobra, stanko));
-
+        porudzbinaRepository.saveAll(List.of(p1,p2));
+        kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
         dzemo.setRestoran(fap);
         jovo.setRestoran(aa);
 
 
         menadzerRepository.save(dzemo);
         menadzerRepository.save(jovo);
-       // porudzbinaRepository.saveAll(List.of(p1,p2));
-       // kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
+        //porudzbinaRepository.saveAll(List.of(p1,p2));
+        //kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
 
 
         //kpgsRepository.saveAll(List.of(s1,s2,s3,s4,s5));
@@ -190,9 +193,9 @@ public class DatabaseConfiguration {
 
         tipKupcaRepository.save(tip1);
 
-        Komentar k1 = new Komentar(testKupac, fap,"dobar", 9);
+       // Komentar k1 = new Komentar(testKupac, fap,"dobar", 9);
 
-        komentarRepository.save(k1);
+       // komentarRepository.save(k1);
 
         return true;
     }

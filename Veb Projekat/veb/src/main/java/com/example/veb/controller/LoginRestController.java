@@ -62,6 +62,7 @@ public class LoginRestController {
         return  new ResponseEntity(ulogovaniKorisnik, HttpStatus.OK);
     }
 
+    @CrossOrigin
     @PostMapping("/odjava")
     public ResponseEntity odjava(HttpSession session){
         if(!sessionService.proveri(session)){

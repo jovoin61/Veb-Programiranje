@@ -16,13 +16,13 @@ import javax.servlet.http.HttpSession;
 public class KorisnikRestController {
 
     @Autowired
-    KorisnikService korisnikService;
+    private KorisnikService korisnikService;
 
     @Autowired
-    SessionService sessionService;
+    private SessionService sessionService;
 
+    @CrossOrigin
     @GetMapping("/prikaz-profila")
-    @CrossOrigin("http://localhost:8080/prikaz-profila")
     public ResponseEntity<Korisnik> prikaz_profila(HttpSession session){
         if(!sessionService.proveri(session)){
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
@@ -32,6 +32,8 @@ public class KorisnikRestController {
 
         return new ResponseEntity<>(korisnik, HttpStatus.OK);
     }
+
+    @CrossOrigin
     @PostMapping("/izmena-profila")
     public ResponseEntity<Korisnik> izmena_profila(@RequestBody RegistracijaDto registracijaDto, HttpSession session){
        if(!sessionService.proveri(session)){
