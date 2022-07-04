@@ -19,8 +19,9 @@ public class RegistracijaRestController {
     @Autowired
     private RegistracijaService registracijaService;
 
+
+    @CrossOrigin
     @PostMapping("/registracija")
-    @CrossOrigin("http://localhost:8080/registracija")
     public ResponseEntity registracija(@RequestBody RegistracijaDto registracijaDto){
 
         HashMap<String, String> greska = provera(registracijaDto);

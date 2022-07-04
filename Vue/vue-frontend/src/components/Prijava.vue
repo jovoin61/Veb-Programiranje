@@ -1,5 +1,5 @@
-<template @submit.prevent="handleSubmit">
-    <form class="form-horizontal">
+<template>
+    <form class="form-horizontal" @submit.prevent="handleSubmit">
         <h3>PRIJAVA</h3>
 
         <div class="form-group">
@@ -32,7 +32,7 @@
        
         methods: {
             async handleSubmit(){
-                const response = await axios.post('/prijava', {
+                const response = await axios.post('http://localhost:8081/prijava', {
                     korisnickoIme : this.korisnickoIme,
                     lozinka: this.lozinka
                 });

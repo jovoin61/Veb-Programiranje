@@ -8,10 +8,11 @@
                 <th>Adresa</th>
             </thead>
             <tbody>
-                <tr v-for = "restoran in restorani" v-bind:key="restoran.id" :href="`/restoran/${restoran.id}`">
-                    <a href=""><td>{{restoran.naziv}}</td></a>
+                <tr v-for = "restoran in restorani" v-bind:key="restoran.id">
+                    <td>{{restoran.naziv}}</td>
                     <td>{{restoran.tip}}</td>
                     <td>{{restoran.lokacija.adresa}}</td>
+                    <button @click = "this.$router.push('/restoran/${restoran.naziv}')"></button>
                 </tr>
             </tbody>
         </table>
@@ -22,7 +23,7 @@
     import RestoranService from '@/services/RestoranService'
 
     export default {
-        name: 'Restorani-ispis',
+        name: 'RestoraniIspis',
         data(){
             return{
                 restorani : []
@@ -32,6 +33,7 @@
             getRestorani(){
                 RestoranService.getRestorani().then((response) =>{
                     this.restorani = response.data;
+                    console.log(response);
                 });
             }
         },

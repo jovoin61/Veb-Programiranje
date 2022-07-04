@@ -31,8 +31,8 @@ public class RestoranRestController {
     @Autowired
     KomentarRepository komentarRepository;
 
+    @CrossOrigin
     @GetMapping("/")
-    @CrossOrigin("http://localhost:8080/")
     public List<RestoranDto> svi_restorani() {
         List<RestoranDto> restorani = restoranSerevice.svi_restorani();
 

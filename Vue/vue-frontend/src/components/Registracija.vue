@@ -55,13 +55,17 @@
 
         methods : {
             async handleSubmit(){
-                const response = await axios.post('/registracija', {
+                const response = await axios.post('http://localhost:8081/registracija', {
                     korisnickoIme : this.korisnickoIme,
                     lozinka : this.lozinka,
                     ime : this.ime,
                     prezime : this.prezime,
                     pol : this.pol,
                     datumRodjenja : this.datumRodjenja
+                },
+                {
+                    "Content-Type": "application/json",
+                    "Accept": "*/*"
                 });
 
                 console.log(response);
