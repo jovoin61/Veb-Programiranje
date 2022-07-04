@@ -8,6 +8,7 @@ import com.example.veb.repository.PorudzbinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -33,8 +34,18 @@ public class DostavljacService {
     }
 
     public boolean promeniStatusPorudzbine(Long idP,Long idD){
+        Optional<Porudzbina> porudzbina1 = porudzbinaRepository.findById(idP);
+        if(!porudzbina1.isPresent()){
+            return false;
+        }
+        Optional<Dostavljac> dostavljacOptional = dostavljacRepository.findById(idD);
+        if(!dostavljacOptional.isPresent()){
+            return false;
+        }
+
         Porudzbina porudzbina = porudzbinaRepository.getByUuid(idP);
         Dostavljac dostavljac = dostavljacRepository.getById(idD);
+
         if(porudzbina.getStatus()== Status.CEKA_DOSTAVLJACA) {
             porudzbina.setStatus(Status.U_TRANSPORTU);
             dostavljac.getPorudzbine().add(porudzbina);

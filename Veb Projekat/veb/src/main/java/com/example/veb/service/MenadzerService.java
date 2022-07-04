@@ -9,6 +9,8 @@ import com.example.veb.repository.PorudzbinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class MenadzerService {
 
@@ -29,6 +31,11 @@ public class MenadzerService {
     }
 
     public boolean promeniStatusPorudzbine(Long id){
+        Optional<Porudzbina> porudzbina1 = porudzbinaRepository.findById(id);
+        if(!porudzbina1.isPresent()){
+            return false;
+        }
+
         Porudzbina porudzbina = porudzbinaRepository.getByUuid(id);
 
         if(porudzbina.getStatus()== Status.OBRADA) {
