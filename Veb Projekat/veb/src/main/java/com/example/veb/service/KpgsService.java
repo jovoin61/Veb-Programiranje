@@ -68,6 +68,7 @@ public class KpgsService {
         if(kpgs.getKupac().getId() != idKupac){
             return false;
         }
+        kpgs.setArtikal(null);
         kpgsRepository.delete(kpgs);
         return true;
     }
