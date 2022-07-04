@@ -9,6 +9,7 @@ import AdminKorisnici from './components/AdminKorisnici.vue';
 import DodavanjeMenadzera from './components/DodavanjeMenadzera.vue';
 import DodavanjeDostavljaca from './components/DodavanjeDostavljaca.vue';
 import DodavanjeRestorana from './components/DodavanjeRestorana.vue';
+import PretragaRestorana from './components/PretragaRestorana.vue';
 
 const router = createRouter({
 
@@ -30,6 +31,7 @@ const router = createRouter({
         {path: '/admin/dodavanje/menadzer', component: DodavanjeMenadzera},
         {path: '/admin/dodavanje/dostavljac', component: DodavanjeDostavljaca},
         {path: '/admin/dodavanje/restoran', component: DodavanjeRestorana},
+        {path: '/restoran/pretraga', component: PretragaRestorana},
     ]
 })
 

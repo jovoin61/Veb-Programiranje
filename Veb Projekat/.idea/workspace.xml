@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d469d6a6-6a16-4438-a8be-7a87d2a6bc05" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vue/vue-frontend/src/components/Restoran.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../Vue/vue-frontend/src/components/Restoran.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +108,7 @@
       <workItem from="1656760725705" duration="11428000" />
       <workItem from="1656881207844" duration="8557000" />
       <workItem from="1656908653940" duration="2255000" />
-      <workItem from="1656922037915" duration="6859000" />
+      <workItem from="1656922037915" duration="8875000" />
     </task>
     <servers />
   </component>

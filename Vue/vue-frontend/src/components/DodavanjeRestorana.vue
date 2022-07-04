@@ -20,7 +20,7 @@
     import axios from 'axios'
 
     export default {
-        name: 'DodavanjeMenadzera',
+        name: 'DodavanjeRestorana',
 
         data(){
             return {

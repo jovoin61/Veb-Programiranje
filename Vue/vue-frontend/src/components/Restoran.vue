@@ -14,6 +14,9 @@
                     <td>{{restoran.lokacija.adresa}}</td>
                     <button @click = "this.$router.push('/restoran/${restoran.naziv}')"></button>
                 </tr>
+                <tr>
+                    <td><router-link to="/restoran/pretraga">PRETRAZITE RESTORANE</router-link></td>
+                </tr>
             </tbody>
         </table>
     </div>
