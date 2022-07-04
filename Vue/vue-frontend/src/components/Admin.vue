@@ -9,15 +9,15 @@
                     </li>
 
                     <li>
-                        <router-link to="/admin">DODAVANJE MENADZERA</router-link>
+                        <router-link to="/admin/dodavanje/menadzer">DODAVANJE MENADZERA</router-link>
                     </li>
 
                     <li>
-                        <router-link to="/admin">DODAVANJE DOSTAVLJACA</router-link>
+                        <router-link to="/admin/dodavanje/dostavljac">DODAVANJE DOSTAVLJACA</router-link>
                     </li>
 
                     <li>
-                        <router-link to="/admin">DODAVANJE RESTORANA</router-link>
+                        <router-link to="/admin/dodavanje/restoran">DODAVANJE RESTORANA</router-link>
                     </li>
                 </ul>
             </tbody>
