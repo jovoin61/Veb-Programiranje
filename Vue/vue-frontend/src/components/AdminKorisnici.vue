@@ -9,7 +9,9 @@
             </thead>
             <tbody>
                 <tr v-for = "korisnik in korisnici" v-bind:key="korisnik.id">
-                    <td>{{}}</td>
+                    <td>{{korisnik.korisnickoIme}}</td>
+                    <td>{{korisnik.ime}}</td>
+                    <td>{{korisnik.prezime}}</td>
                 </tr>
             </tbody>
         </table>
@@ -17,7 +19,7 @@
 </template>
 
 <script>
-    import AdminKorisniciService from '@/services/AdminKorisniciService';
+    import AdminKorisniciService from '../services/AdminKorisniciService'
 
     export default {
         name: 'AdminKorisnici',
@@ -37,10 +39,25 @@
             }
         },
         created(){
-            this.getKorisnici()
+            this.getKorisnici();
         }
     }
 </script>
 
 <style>
+    .container {
+  margin-top: auto;
+  width: 100%;
+}
+
+.text-center {
+    padding-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tabela-prikaz{
+    margin-left: auto;
+    margin-right: auto;
+}
 </style>

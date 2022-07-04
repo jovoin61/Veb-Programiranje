@@ -62,10 +62,6 @@
                     prezime : this.prezime,
                     pol : this.pol,
                     datumRodjenja : this.datumRodjenja
-                },
-                {
-                    "Content-Type": "application/json",
-                    "Accept": "*/*"
                 });
 
                 console.log(response);

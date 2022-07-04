@@ -22,14 +22,8 @@ const router = createRouter({
         ]},
         {path: '/prijava', component: Prijava},
         {path: '/registracija', component: Registracija},
-        {path: '/admin', component: Admin, 
-            children:[
-                {
-                    path : '/korisnici',
-                    name : 'admin-korisnici',
-                    component : AdminKorisnici,
-                },
-            ]},
+        {path: '/admin', component: Admin},
+        {path: '/admin/korisnici', component: AdminKorisnici},
     ]
 })
 

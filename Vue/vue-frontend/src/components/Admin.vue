@@ -3,18 +3,23 @@
         <h1 class = "text-center">ADMIN MENI</h1>
         <table class="tabela-prikaz">
             <tbody>
-                <tr>
-                    <td>
+                <ul>
+                    <li>
                         <router-link to="/admin/korisnici">SVI KORISNICI</router-link>
-                    </td>
+                    </li>
 
-                    <td>
-                    
-                    </td>
-                    <td>
+                    <li>
+                        <router-link to="/admin">DODAVANJE MENADZERA</router-link>
+                    </li>
 
-                    </td>
-                </tr>
+                    <li>
+                        <router-link to="/admin">DODAVANJE DOSTAVLJACA</router-link>
+                    </li>
+
+                    <li>
+                        <router-link to="/admin">DODAVANJE RESTORANA</router-link>
+                    </li>
+                </ul>
             </tbody>
         </table>
     </div>
